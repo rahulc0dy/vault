@@ -28,6 +28,7 @@ export default function CreateBlog() {
       setMessage(`Blog created successfully! Slug: ${data.slug}`);
       setTitle("");
       setContent("");
+      console.log(message);
       // Redirect to the newly created blog page
       router.push(`/blogs/${data.slug}`);
     } else {
