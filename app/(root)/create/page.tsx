@@ -1,14 +1,23 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import MarkdownEditor from "@uiw/react-markdown-editor";
+import dynamic from "next/dynamic";
+
+const MarkdownEditor = dynamic(() => import("@uiw/react-markdown-editor"), {
+  ssr: false,
+});
 
 export default function CreateBlog() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [message, setMessage] = useState("");
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -53,13 +62,15 @@ export default function CreateBlog() {
       <label htmlFor="content" className="text-lg font-bold">
         Content
       </label>
-      <MarkdownEditor
-        width="auto"
-        height="800px"
-        value={content}
-        onChange={setContent}
-        enablePreview={true}
-      />
+      {mounted && (
+        <MarkdownEditor
+          width="auto"
+          height="800px"
+          value={content}
+          onChange={setContent}
+          enablePreview={true}
+        />
+      )}
 
       <input
         type="submit"
