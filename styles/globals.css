@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
-@theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+@theme {
   --font-handwriting: var(--font-playwrite);
   --font-code: var(--font-source-code-pro);
 }
+
+@plugin "@tailwindcss/typography";
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -27,23 +28,13 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
   --max-content-width: 1200px;
   --wrapper-inline-padding: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
 }
 
 .wrapper {

@@ -1,3 +1,8 @@
+---
+title: Test Blog
+date: 1/1/2025
+---
+
 # This is a test Blog
 
 ## hu hu
