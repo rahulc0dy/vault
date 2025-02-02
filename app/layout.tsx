@@ -1,15 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "@/styles/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const karla = localFont({
+  src: "../fonts/Karla-VariableFont_wght.ttf",
+  preload: true,
+  adjustFontFallback: "Arial",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const sourceCodePro = localFont({
+  src: "../fonts/SourceCodePro-VariableFont_wght.ttf",
+  display: "swap",
+  preload: true,
+  variable: "--font-source-code-pro",
+});
+
+const playwrite = localFont({
+  src: "../fonts/PlaywriteIN-VariableFont_wght.ttf",
+  display: "swap",
+  preload: true,
+  variable: "--font-playwrite",
 });
 
 export const metadata: Metadata = {
@@ -23,12 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${playwrite.variable} ${sourceCodePro.variable} `}
+    >
+      <body className={`${karla.className} antialiased`}>{children}</body>
     </html>
   );
 }
