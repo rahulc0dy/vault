@@ -10,7 +10,7 @@ type MarkdownRendererProps = {
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
   return (
-    <article className="prose max-w-none dark:text-white">
+    <article className="prose dark:prose-invert max-w-none">
       <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
     </article>
   );
