@@ -21,8 +21,8 @@ const NavBar = () => {
             >
               about
             </Link>
-            <Link href="/" className="hidden md:block">
-              contact
+            <Link href="/create" className="hidden md:block">
+              create
             </Link>
             <DarkLightSwitch />
           </div>
