@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@uiw/react-markdown-editor": "^6.1.2",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.474.0",

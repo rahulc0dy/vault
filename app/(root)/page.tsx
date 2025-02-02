@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ScrambleText from "@/components/ScrambleText";
 
 export default function Home() {
   return (
@@ -7,9 +8,13 @@ export default function Home() {
         <h1 className="font-handwriting mb-3 text-4xl leading-loose font-extrabold md:text-6xl">
           Welcome to My Blog
         </h1>
-        <p className="font-code text-lg">
-          Discover insightful articles, tips, and stories on various topics.
-        </p>
+        <ScrambleText
+          content={
+            "Discover insightful articles, tips, and stories on various topics."
+          }
+          classes={["font-code", "text-lg"]}
+        />
+        <p className="font-code text-lg"></p>
       </section>
 
       {/* Blog Categories */}
