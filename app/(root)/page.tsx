@@ -1,7 +1,9 @@
 import Image from "next/image";
 import ScrambleText from "@/components/ScrambleText";
+import { getBlogsList } from "@/utils/blogsList";
 
 export default function Home() {
+  const blogs = getBlogsList(4);
   return (
     <>
       <section className="mb-12 py-5 text-center lg:py-16">
@@ -38,10 +40,10 @@ export default function Home() {
       <section>
         <h2 className="mb-4 text-2xl font-semibold">Latest Posts</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3, 4, 5, 6].map((post) => (
+          {blogs.map((blog) => (
             <article
-              key={post}
-              className="overflow-hidden rounded-lg bg-white shadow-md transition hover:shadow-lg"
+              key={blog.slug}
+              className="overflow-hidden rounded-lg bg-teal-50 shadow-md transition hover:shadow-lg dark:bg-zinc-800 dark:text-teal-50"
             >
               <Image
                 src={`https://placehold.co/700x500`}
@@ -51,16 +53,13 @@ export default function Home() {
                 className="h-40 w-full object-cover"
               />
               <div className="p-4">
-                <h3 className="mb-2 text-lg font-bold">
-                  Blog Post Title {post}
-                </h3>
-                <p className="text-sm text-gray-600">
-                  This is a short description of the blog post content. Click to
-                  read more...
+                <h3 className="mb-2 text-lg font-bold">{blog.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {blog.date.toDateString()}
                 </p>
                 <a
-                  href="#"
-                  className="mt-2 inline-block font-semibold text-blue-500"
+                  href={`/blogs/${blog.slug}`}
+                  className="mt-2 inline-block font-semibold text-blue-500 dark:text-sky-300"
                 >
                   Read More →
                 </a>

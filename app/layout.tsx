@@ -42,7 +42,7 @@ export default function RootLayout({
       data-theme="light"
     >
       <body
-        className={`${karla.className} min-h-screen bg-white text-zinc-950 antialiased dark:bg-zinc-950 dark:text-teal-50`}
+        className={`${karla.className} relative min-h-screen bg-white text-zinc-950 antialiased dark:bg-zinc-950 dark:text-teal-50`}
       >
         <NavBar />
         <main className="wrapper py-5">{children}</main>
