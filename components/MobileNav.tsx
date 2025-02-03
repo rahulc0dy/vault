@@ -21,8 +21,8 @@ const MobileNav = () => {
       </label>
       {isOpen && (
         <>
-          <div className="fixed inset-0 bg-zinc-950"></div>
-          <div className="absolute top-10 right-0 left-0 mt-5 flex flex-col items-center gap-5 text-lg font-bold text-teal-950 md:hidden dark:text-teal-100">
+          <div className="fixed inset-0 z-40 bg-white dark:bg-zinc-950"></div>
+          <div className="absolute top-10 right-0 left-0 z-50 mt-5 flex flex-col items-center gap-5 text-lg font-bold text-teal-950 md:hidden dark:text-teal-100">
             <Link href="/blogs" className="">
               blogs
             </Link>
