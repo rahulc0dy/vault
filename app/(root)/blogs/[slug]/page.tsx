@@ -3,12 +3,18 @@ import path from "path";
 import matter from "gray-matter";
 import React from "react";
 import MarkdownRenderer from "@/components/helpers/MarkDownRenderer";
+import NotFound from "@/app/not-found";
 
 const BlogPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const blogFilePath = path.join(process.cwd(), "blogs", `${slug}.md`);
 
-  const fileContents = await fs.readFile(blogFilePath, "utf8");
+  let fileContents;
+  try {
+    fileContents = await fs.readFile(blogFilePath, "utf8");
+  } catch (error) {
+    return <NotFound error={new Error("No such blog exists.")} />;
+  }
 
   const { content, data } = matter(fileContents);
 
