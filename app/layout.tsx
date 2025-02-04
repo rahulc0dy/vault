@@ -28,6 +28,20 @@ const playwrite = localFont({
 export const metadata: Metadata = {
   title: "c0dy_blogs",
   description: "Blog app from rahulc0dy | Home",
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/app-icons/icon512x512-light.png",
+        href: "/app-icons/icon512x512-light.png",
+      },
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/app-icons/icon512x512-dark.png",
+        href: "/app-icons/icon512x512-dark.png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
