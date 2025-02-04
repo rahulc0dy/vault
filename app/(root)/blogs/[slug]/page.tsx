@@ -12,7 +12,7 @@ const BlogPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   let fileContents;
   try {
     fileContents = await fs.readFile(blogFilePath, "utf8");
-  } catch (error) {
+  } catch {
     return <NotFound error={new Error("No such blog exists.")} />;
   }
 
