@@ -5,7 +5,7 @@ import MobileNav from "@/components/MobileNav";
 
 const NavBar = () => {
   return (
-    <div className="sticky w-full border-b border-teal-100 dark:border-teal-950">
+    <div className="sticky w-full border-b border-teal-100 dark:border-teal-950 dark:bg-zinc-900">
       <nav className="wrapper">
         <div className="flex w-full justify-between py-3 md:items-center">
           <Link href="/" className="font-code text-lg font-extrabold">
