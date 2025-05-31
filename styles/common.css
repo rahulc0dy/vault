@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Basement Grotesque';
+  src: url('../assets/fonts/BasementGrotesque-Black_v1.202.woff2') format("woff2"),
+  url('../assets/fonts/BasementGrotesque-Black_v1.202.woff') format("woff"),
+  url('../assets/fonts/BasementGrotesque-Black_v1.202.otf') format("opentype");
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src: url('../assets/fonts/Iosevka-Bold.woff2') format('woff2'),
+  url('../assets/fonts/Iosevka-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src: url('../assets/fonts/Iosevka-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src: url('../assets/fonts/Iosevka-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src: url('../assets/fonts/Iosevka-Italic.woff2') format('woff2'),
+  url('../assets/fonts/Iosevka-Italic.ttf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src: url('../assets/fonts/Iosevka-Oblique.ttf') format('truetype');
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src: url('../assets/fonts/Iosevka-Extended.woff2') format('woff2'),
+  url('../assets/fonts/Iosevka-Extended.ttf') format('truetype');
+  font-stretch: expanded;
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src: url('../assets/fonts/Iosevka-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pixelify Sans Variable';
+  src: url('../assets/fonts/PixelifySans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+
+/* Example usage */
+body {
+  font-family: 'Iosevka', 'Iosevka Web', serif;
+  font-weight: 800;
+  font-size: 5rem;
+}
