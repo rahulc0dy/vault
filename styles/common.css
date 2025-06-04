@@ -67,4 +67,33 @@ body {
   font-family: 'Basement Grotesque', 'Iosevka Web', serif;
   font-weight: 800;
   font-size: 5rem;
+
+  background: #111111;
+  color: lightsteelblue;
+}
+
+.wrapper {
+  width: min(1536px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+kbd > kbd {
+  color: midnightblue;
+  background: aliceblue;
+  border-radius: 4px;
+  padding-inline: 4px;
+  box-shadow: 2px 2px 0 3px lightsteelblue;
+
+  &:last-child {
+    margin-inline-end: 4px;
+  }
+}
+
+.item:empty {
+  display: none;
+}
+
+/* Temporary Styles */
+h1 {
+  text-align: center;
 }
