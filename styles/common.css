@@ -61,15 +61,27 @@
   font-style: normal;
 }
 
+/* Custom Properties */
+@property --surface-1 {
+  syntax: "<color>";
+  initial-value: #040d0e;
+  inherits: true;
+}
+
+@property --text-1 {
+  syntax: "<color>";
+  initial-value: #b0deda;
+  inherits: true;
+}
+
 
 /* Example usage */
 body {
-  font-family: 'Basement Grotesque', 'Iosevka Web', serif;
-  font-weight: 800;
-  font-size: 5rem;
-
-  background: #111111;
-  color: lightsteelblue;
+  background: var(--surface-1, black);
+  color: var(--text-1, lightsteelblue);
+  font-family: 'Iosevka', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .wrapper {
@@ -95,5 +107,9 @@ kbd > kbd {
 
 /* Temporary Styles */
 h1 {
+  font-family: 'Basement Grotesque', 'Iosevka Web', serif;
   text-align: center;
+  font-weight: 800;
+  /*font-size: clamp(2rem, 10vw + 0.5rem, 5rem);*/
+  font-size: 5rem;
 }
