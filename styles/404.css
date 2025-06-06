@@ -1,0 +1,37 @@
+body {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  animation: blink-glow 6s ease-in-out infinite alternate;
+
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw + 1rem, 8rem);
+}
+
+h2 {
+  font-size: clamp(1rem, 6vw, 5rem);
+  font-family: Iosevka, sans-serif;
+}
+
+@keyframes blink-glow {
+  from {
+    text-shadow: 0 0 5rem rgba(179, 255, 241, 0.5);
+  }
+
+  to {
+    text-shadow: 0 0 2rem rgba(179, 255, 241, 0.2);
+  }
+}
