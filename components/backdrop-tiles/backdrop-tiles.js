@@ -1,0 +1,19 @@
+const tile1 = `<svg width="632" height="200" viewBox="0 0 632 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 122C0 108.745 10.7452 98 24 98H250C263.255 98 274 87.2548 274 74V24C274 10.7452 284.745 0 298 0H492C505.255 0 516 10.7452 516 24V74C516 87.2548 526.745 98 540 98H608C621.255 98 632 108.745 632 122V176C632 189.255 621.255 200 608 200H430H250H24C10.7452 200 0 189.255 0 176V122Z" fill="#B9DDDA" fill-opacity="0.1" style="fill:#B9DDDA;fill:color(display-p3 0.7255 0.8667 0.8549);fill-opacity:0.1;"/>
+</svg>`;
+
+const tile2 = `<svg width="679" height="200" viewBox="0 0 679 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 122C0 108.745 10.7452 98 24 98H250C263.255 98 274 87.2548 274 74V24C274 10.7452 284.745 0 298 0H654.5C667.755 0 678.5 10.7452 678.5 24V74C678.5 87.2548 667.755 98 654.5 98H589C575.745 98 565 108.745 565 122V176C565 189.255 554.255 200 541 200H428H250H24C10.7452 200 0 189.255 0 176V122Z" fill="#B9DDDA" fill-opacity="0.1" style="fill:#B9DDDA;fill:color(display-p3 0.7255 0.8667 0.8549);fill-opacity:0.1;"/>
+</svg>
+`;
+
+const tile3 = `<svg width="632" height="302" viewBox="0 0 632 302" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 122C0 108.745 10.7452 98 24 98H250C263.255 98 274 87.2548 274 74V24C274 10.7452 284.745 0 298 0H492C505.255 0 516 10.7452 516 24V74C516 87.2548 526.745 98 540 98H608C621.255 98 632 108.745 632 122V176C632 189.255 621.255 200 608 200H452C438.745 200 428 210.745 428 224V278C428 291.255 417.255 302 404 302H274C260.745 302 250 291.255 250 278V224C250 210.745 239.255 200 226 200H24C10.7452 200 0 189.255 0 176V122Z" fill="#B9DDDA" fill-opacity="0.1" style="fill:#B9DDDA;fill:color(display-p3 0.7255 0.8667 0.8549);fill-opacity:0.1;"/>
+</svg>
+`;
+
+const backdropTiles = ["tile-1.svg", "tile-2.svg", "tile-3.svg"];
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.appendChild(html(tile1));
+});
