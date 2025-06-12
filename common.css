@@ -2,9 +2,9 @@
 
 @font-face {
   font-family: 'Basement Grotesque';
-  src: url('../assets/fonts/BasementGrotesque-Black_v1.202.woff2') format("woff2"),
-  url('../assets/fonts/BasementGrotesque-Black_v1.202.woff') format("woff"),
-  url('../assets/fonts/BasementGrotesque-Black_v1.202.otf') format("opentype");
+  src: url('assets/fonts/BasementGrotesque-Black_v1.202.woff2') format("woff2"),
+  url('assets/fonts/BasementGrotesque-Black_v1.202.woff') format("woff"),
+  url('assets/fonts/BasementGrotesque-Black_v1.202.otf') format("opentype");
 }
 
 @font-face {
@@ -12,7 +12,7 @@
   font-display: swap;
   font-weight: normal;
   font-style: normal;
-  src: url("../assets/fonts/SpaceMono-Regular.ttf") format("truetype");
+  src: url("assets/fonts/SpaceMono-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -20,7 +20,7 @@
   font-display: swap;
   font-weight: normal;
   font-style: italic;
-  src: url("../assets/fonts/SpaceMono-Italic.ttf") format("truetype");
+  src: url("assets/fonts/SpaceMono-Italic.ttf") format("truetype");
 }
 
 @font-face {
@@ -28,61 +28,61 @@
   font-display: swap;
   font-weight: 200;
   font-style: normal;
-  src: url("../assets/fonts/MiriamLibre-Regular.ttf") format("truetype");
+  src: url("assets/fonts/MiriamLibre-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: 'Iosevka';
-  src: url('../assets/fonts/Iosevka-Bold.woff2') format('woff2'),
-  url('../assets/fonts/Iosevka-Bold.ttf') format('truetype');
+  src: url('assets/fonts/Iosevka-Bold.woff2') format('woff2'),
+  url('assets/fonts/Iosevka-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Iosevka';
-  src: url('../assets/fonts/Iosevka-Heavy.ttf') format('truetype');
+  src: url('assets/fonts/Iosevka-Heavy.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Iosevka';
-  src: url('../assets/fonts/Iosevka-Thin.ttf') format('truetype');
+  src: url('assets/fonts/Iosevka-Thin.ttf') format('truetype');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Iosevka';
-  src: url('../assets/fonts/Iosevka-Italic.woff2') format('woff2'),
-  url('../assets/fonts/Iosevka-Italic.ttf') format('truetype');
+  src: url('assets/fonts/Iosevka-Italic.woff2') format('woff2'),
+  url('assets/fonts/Iosevka-Italic.ttf') format('truetype');
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Iosevka';
-  src: url('../assets/fonts/Iosevka-Oblique.ttf') format('truetype');
+  src: url('assets/fonts/Iosevka-Oblique.ttf') format('truetype');
   font-style: oblique;
 }
 
 @font-face {
   font-family: 'Iosevka';
-  src: url('../assets/fonts/Iosevka-Extended.woff2') format('woff2'),
-  url('../assets/fonts/Iosevka-Extended.ttf') format('truetype');
+  src: url('assets/fonts/Iosevka-Extended.woff2') format('woff2'),
+  url('assets/fonts/Iosevka-Extended.ttf') format('truetype');
   font-stretch: expanded;
 }
 
 @font-face {
   font-family: 'Iosevka';
-  src: url('../assets/fonts/Iosevka-ExtraBold.woff2') format('woff2');
+  src: url('assets/fonts/Iosevka-ExtraBold.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pixelify Sans Variable';
-  src: url('../assets/fonts/PixelifySans-VariableFont_wght.ttf') format('truetype');
+  src: url('assets/fonts/PixelifySans-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
@@ -110,13 +110,6 @@
   syntax: "<color>";
   initial-value: #e5ecea;
   inherits: false;
-}
-
-/* Reset Styles */
-*, ::after, ::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 /* Layers */
@@ -596,15 +589,24 @@ kbd > kbd {
       background: #9994;
     }
 
-    & img {
-      width: 48px;
-      height: 48px;
-      border-radius: 25%;
-      image-rendering: pixelated;
-      object-fit: cover;
-      backdrop-filter: blur(8px);
-      pointer-events: all;
+    & div.img-wrapper {
+      background: var(--clr0);
+      border-radius: 10px;
+      box-shadow: 0 0 0 .5rem rgba(10, 213, 183, 0.4);
+      width: min-content;
+      aspect-ratio: 1;
+
+      & img {
+        width: 40px;
+        height: 40px;
+        border-radius: 25%;
+        image-rendering: pixelated;
+        object-fit: cover;
+        backdrop-filter: blur(8px);
+        pointer-events: all;
+      }
     }
+
 
     & .site-header-icon-yay {
       border-radius: 50%;

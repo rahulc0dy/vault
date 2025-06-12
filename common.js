@@ -90,7 +90,9 @@ customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
         ${renderItem("/", "Home")}
         ${renderItem("/stories/", "Stories")}
         ${renderItem("/about/", "About")}
-        <img src="${iconSrc}" alt="" class="${iconSrc === "/assets/icons/sheet.png" ? "site-icon-sheet" : ""}">
+        <div class="img-wrapper">
+          <img src="${iconSrc}" alt="" class="${iconSrc === "/assets/icons/sheet.png" ? "site-icon-sheet" : ""}">
+        </div>
         ${renderItem("/quests/", "Quests")}
         ${renderItem("/art/", "Art")}
         ${renderItem("/music/", "Music")}
@@ -112,11 +114,11 @@ customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
   }
 
   #getIconSrc() {
-    if (this.#isSelected("/stories/")) return "assets/icons/story.png";
-    if (this.#isSelected("/about/")) return "assets/icons/person.png";
-    if (this.#isSelected("/quests/")) return "assets/icons/quest.png";
-    if (this.#isSelected("/art/")) return "assets/icons/art.png";
-    if (this.#isSelected("/music/")) return "assets/icons/music.png";
+    if (this.#isSelected("/stories/")) return "/assets/icons/story.png";
+    if (this.#isSelected("/about/")) return "/assets/icons/person.png";
+    if (this.#isSelected("/quests/")) return "/assets/icons/quest.png";
+    if (this.#isSelected("/art/")) return "/assets/icons/art.png";
+    if (this.#isSelected("/music/")) return "/assets/icons/music.png";
     return "/assets/icons/sheet.png";
   }
 
@@ -214,6 +216,231 @@ customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
 
 
 });
+
+customElements.define("site-footer", class SiteFooter extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  #animateScrollToTop(currentY = Math.min(800, window.scrollY)) {
+    currentY *= 0.6;
+    window.scrollTo(0, currentY);
+    if (currentY < 1) {
+      window.scrollTo(0, 0);
+    } else {
+      requestAnimationFrame(() => this.#animateScrollToTop(currentY));
+    }
+  }
+
+  // why not flex? I wanted <body> to be as vanilla as possible
+  #updatePosition() {
+    const originalTop =
+      this.offsetTop - (this.style.top ? Number.parseInt(this.style.top) : 0);
+    const goodTop = window.innerHeight - this.offsetHeight - originalTop;
+    if (goodTop > 0) {
+      this.style.position = "relative";
+      this.style.top = goodTop + "px";
+    } else {
+      this.style.removeProperty("position");
+      this.style.removeProperty("top");
+    }
+  }
+
+  connectedCallback() {
+    const geekRingNumber = 255;
+    const nobg = this.hasAttribute("nobg");
+    if (!nobg) {
+      setTimeout(() => {
+        import("/components/nebula-animation/nebula-animation.js");
+      }, 1500);
+    }
+
+    this.innerHTML = html`
+      <footer>
+        <div>
+          <p>
+            <a href="/">Home</a> · <a href="/notes/">Notes</a> ·
+            <a href="/about/">About</a> · <a href="/wares/">Software</a> ·
+            <a href="/art/">Art</a> ·
+            <a href="/music/">Music</a>
+          </p>
+          <p>
+            <img
+              class="lg-icon pixelated"
+              alt=""
+              src="/icons/laptop_user.png"
+              loading="lazy"
+              style="vertical-align: top"
+            />
+            <span style="display: inline-block">
+              ·
+              <a href="/guestbook/">Sign the guestbook!</a>
+              <br />
+              · Drop a
+              <a
+                href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;mail%40leanrada.com"
+                target="_blank"
+              >
+                mail＠leanrada·com
+              </a>
+              <br />
+            </span>
+          </p>
+          <p>This site is best viewed with a cup of hot chocolate.</p>
+          <p>
+            (C) 2015-${new Date().getFullYear()} Lean Rada.
+            <a href="https://github.com/Kalabasa/leanrada.com" target="_blank">
+              Source</a
+            >.
+          </p>
+        </div>
+        <div>
+          <h2>On the web</h2>
+          <a
+            class="no-text-decoration"
+            href="https://mastodon.social/@Kalabasa"
+            target="_blank"
+            rel="me"
+          >
+            <img
+              class="md-icon pixelated invert-on-hover"
+              alt="Mastodon"
+              src="/icons/mastodon.png"
+              loading="lazy"
+            />
+          </a>
+          <a
+            class="no-text-decoration"
+            href="https://codepen.io/kalabasa"
+            target="_blank"
+          >
+            <img
+              class="md-icon pixelated invert-on-hover"
+              alt="CodePen"
+              src="/icons/codepen.png"
+              loading="lazy"
+            />
+          </a>
+          <a
+            class="no-text-decoration"
+            href="https://github.com/Kalabasa"
+            target="_blank"
+            rel="me"
+          >
+            <img
+              class="md-icon pixelated invert-on-hover"
+              alt="GitHub"
+              src="/icons/github.png"
+              loading="lazy"
+            />
+          </a>
+          <h2>Webrings</h2>
+          <p>
+            <img
+              class="sm-icon pixelated"
+              alt=""
+              src="/icons/planet.png"
+              loading="lazy"
+            />
+            <a href="http://geekring.net/" target="_blank">geekring.net</a>
+            [<a
+            href="http://geekring.net/site/${geekringNumber}/previous"
+            target="_blank"
+            aria-label="Previous site"
+          >←</a
+          >
+            <a
+              href="http://geekring.net/site/${geekringNumber}/random"
+              target="_blank"
+              aria-label="Random site"
+            >⁙</a
+            >
+            <a
+              href="http://geekring.net/site/${geekringNumber}/next"
+              target="_blank"
+              aria-label="Next site"
+            >→</a
+            >
+            <a
+              href="http://geekring.net/site/${geekringNumber}/frameset"
+              target="_blank"
+              aria-label="Frameset browsing"
+            >▣</a
+            >]
+          </p>
+          <p>
+            <img
+              class="sm-icon pixelated"
+              alt=""
+              src="/icons/planet.png"
+              loading="lazy"
+            />
+            <a href="https://cs.sjoy.lol/">CSS JOY</a>
+            [<a
+            href="https://webri.ng/webring/cssjoy/previous?via=https%3A%2F%2Fleanrada.com"
+            target="_blank"
+            aria-label="Previous site"
+          >←</a
+          >
+            <a
+              href="https://webri.ng/webring/cssjoy/random?via=https%3A%2F%2Fleanrada.com"
+              target="_blank"
+              aria-label="Random site"
+            >⁙</a
+            >
+            <a
+              href="https://webri.ng/webring/cssjoy/next?via=https%3A%2F%2Fleanrada.com"
+              target="_blank"
+              aria-label="Next site"
+            >→</a
+            >]
+          </p>
+        </div>
+        ${nobg
+          ? ""
+          : html`
+            <nebula-animation
+              palette="#0ad591 #ff2b75 #ffb833 #0ad591 #0ad591 #4d4aff #0ad591"
+              width="40"
+              height="10"
+            ></nebula-animation>`}
+        <a href="#top" aria-label="Back to top">^</a>
+      </footer>`;
+
+    const topBtn = this.querySelector("a[href='#top']");
+    topBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      this.#animateScrollToTop();
+    });
+
+    if (this.parentElement === document.body) {
+      this.#updatePosition();
+      window.addEventListener("resize", () => {
+        this.#updatePosition();
+      });
+      new ResizeObserver(() => {
+        this.#updatePosition();
+      }).observe(document.body);
+    }
+
+  }
+});
+
+const appendStyle = (() => {
+  const appendedStyles = new Set();
+
+  return (id, htmlCode) => {
+    if (appendedStyles.has(id)) return;
+    appendedStyles.add(id);
+
+    const styleElement = document.createElement("style");
+    const cssCode = htmlCode.slice("<style>".length, -"</style>".length);
+    const indent = cssCode.match(/^\n?([ \t]*)/)[1];
+    styleElement.textContent =
+      "@layer component {\n" + cssCode.replaceAll(indent, "") + "\n}";
+    document.head.appendChild(styleElement);
+  };
+})();
 
 function debounce(fn, ms = 0) {
   let recentlyFired = false;
