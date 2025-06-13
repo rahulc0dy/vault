@@ -128,7 +128,7 @@
   --text-clr: var(--text-1);
   --border-clr: var(--overlay-1);
 
-  --wrapper-width: 1200px;
+  --wrapper-width: 1000px;
 
   scroll-behavior: smooth;
 }
@@ -150,7 +150,6 @@
     --text-clr: var(--text-1);
     --border-clr: var(--overlay-1);
 
-    --wrapper-width: 1200px;
   }
 
   body {

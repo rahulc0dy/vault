@@ -214,6 +214,33 @@ customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
 
 });
 
+customElements.define("site-footer", class SiteFooter extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = html`
+      <footer class="wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h3>About</h3>
+              <p>I'm a software engineer, musician, and artist. I'm currently working on my next project, a music player
+                that will be available for free on the web.</p>
+            </div>
+            <div class="col-md-4">
+              <h3>Contact</h3>
+              <p>You can reach me on <a href="https://portfolio-webapp.framer.ai">My Portfolio</a> or <a
+                href="https://github.com/rahulc0dy">GitHub</a>.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    `;
+  }
+});
+
 
 const appendStyle = (() => {
   const appendedStyles = new Set();

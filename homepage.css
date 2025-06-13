@@ -1,0 +1,7 @@
+@layer base {
+  body {
+    background-image: url("components/backdrop-tiles/tiled-bg.svg");
+    min-height: 100dvh;
+    background-size: contain;
+  }
+}

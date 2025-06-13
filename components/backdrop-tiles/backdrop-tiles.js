@@ -12,7 +12,7 @@ const tile3 = `<svg width="632" height="302" viewBox="0 0 632 302" fill="none" x
 </svg>
 `;
 
-const backdropTiles = ["tile-1.svg", "tile-2.svg", "tile-3.svg"];
+const backdropTiles = [tile1, tile2, tile3];
 
 document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(html(tile1));
