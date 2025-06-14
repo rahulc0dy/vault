@@ -5,3 +5,87 @@
     background-size: contain;
   }
 }
+
+@layer components {
+
+  .hero-section {
+    padding-block: 5em;
+  }
+
+  .hero-small-text {
+    font-size: 1.2rem;
+    font-family: "Space Mono", monospace;
+    margin: 0;
+  }
+
+  .hero-name {
+    margin: 0;
+    color: var(--text-1);
+    font-size: clamp(2rem, 5vw + 1rem, 8rem);
+    font-family: "Basement Grotesque", Iosevka, "Space Mono", monospace;
+    text-transform: uppercase;
+  }
+
+  .short-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+  }
+
+  .circle-container {
+    max-width: 40%;
+    aspect-ratio: 1;
+    background: #3F515080;
+    border-radius: 50%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: clip;
+
+
+    & .inner-circle {
+      background: #050F0E66;
+      position: absolute;
+      border-radius: 50%;
+      inset: 1rem;
+      inset: 1lh;
+      display: flex;
+      padding: 20%;
+      backdrop-filter: blur(10px);
+      overflow: clip;
+
+      &::before, &::after {
+        content: "";
+        position: absolute;
+        width: 30%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        top: 0;
+        rotate: 85deg;
+        z-index: -1;
+        filter: blur(5rem);
+      }
+
+      &::before {
+        background: #99F8FF;
+        left: 0;
+      }
+
+      &::after {
+        background: #0FF0DE;
+        right: 0;
+      }
+
+      & .center-image {
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        aspect-ratio: 1;
+      }
+    }
+
+  }
+}

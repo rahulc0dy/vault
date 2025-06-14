@@ -125,7 +125,7 @@
   --text-2: #ffffff;
 
   --bg-clr: var(--surface-1);
-  --text-clr: var(--text-1);
+  --text-clr: var(--text-2);
   --border-clr: var(--overlay-1);
 
   --wrapper-width: 1000px;
@@ -140,7 +140,7 @@
 
     --backdrop: #B9DDDA19;
 
-    --overlay-1: #111;
+    --overlay-1: rgba(17, 17, 17, 0.11);
     --overlay-2: #111;
 
     --text-1: #B9DDDA;
