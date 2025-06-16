@@ -53,7 +53,7 @@
       inset: 1rem;
       inset: 1lh;
       display: flex;
-      padding: 20%;
+      padding: 5%;
       backdrop-filter: blur(10px);
       overflow: clip;
 
@@ -80,12 +80,39 @@
       }
 
       & .center-image {
-        
-        object-fit: cover;
-        object-position: center;
+        height: 100%;
+        padding: 0;
         aspect-ratio: 1;
+        background-size: cover;
+        image-rendering: pixelated;
+        background-image: url("assets/images/attacking-sprite-sheet.png");
+        background-repeat: no-repeat;
+        transform: rotateY(180deg);
+        animation: run 1s infinite steps(5);
+      }
+
+      & .desc-text {
+        position: absolute;
+        inset: 0;
+        text-wrap: wrap;
+        width: 70%;
+        text-align: center;
+        font-family: "Pixelify Sans Variable", Iosevka, monospace;
+        font-size: clamp(0.5rem, 5vw, 1.5rem);
+        margin-inline: auto;
       }
     }
 
   }
+
 }
+
+@keyframes run {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+

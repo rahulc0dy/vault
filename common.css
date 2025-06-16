@@ -131,6 +131,7 @@
   --wrapper-width: 1000px;
 
   scroll-behavior: smooth;
+  interpolate-size: allow-keywords;
 }
 
 @layer base {
@@ -218,8 +219,18 @@
 
       &:hover {
         object-position: calc(-1 * var(--image-size)) 0;
+        animation: sprite-sheet 1s infinite steps(5);
       }
     }
+  }
+}
+
+@keyframes sprite-sheet {
+  from {
+    object-position: left;
+  }
+  to {
+    object-position: right;
   }
 }
 
