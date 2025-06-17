@@ -33,6 +33,17 @@
     flex: 1;
   }
 
+  @media (max-width: 768px) {
+    .short-description {
+      flex-direction: column;
+
+      & .circle-container {
+        width: 20em;
+        max-width: 100%;
+      }
+    }
+  }
+
   .circle-container {
     max-width: 40%;
     aspect-ratio: 1;
