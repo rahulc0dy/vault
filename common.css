@@ -223,6 +223,12 @@
       }
     }
   }
+
+  site-footer {
+    background-color: red;
+    backdrop-filter: blur(10px);
+
+  }
 }
 
 @keyframes sprite-sheet {
