@@ -19,11 +19,20 @@ main {
 
 h1 {
   font-size: clamp(2rem, 5vw + 1rem, 8rem);
+  margin: 0;
+  font-family: Iosevka, sans-serif;
 }
 
 h2 {
+  margin: 0;
   font-size: clamp(1rem, 6vw, 5rem);
   font-family: Iosevka, sans-serif;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: var(--text-1);
 }
 
 @keyframes blink-glow {

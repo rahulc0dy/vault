@@ -244,9 +244,14 @@
 
   /*---------- footer styles -------------*/
   site-footer {
-    background-color: red;
-    backdrop-filter: blur(10px);
-
+    --surface-1: #1111114C;
+    --surface-2: rgba(10, 21, 20, 0.3);
+    background-color: var(--surface-2);
+    background-image: radial-gradient(circle, var(--surface-1) 0%, var(--surface-2) 100%);
+    margin-block: 0;
+    padding-block: 1rem;
+    backdrop-filter: blur(1rem);
+    display: block;
   }
 }
 
@@ -424,4 +429,16 @@ kbd > kbd {
   }
 }
 
-/*------------------------- NAVBAR STYLES ----------------------------*/
+
+/*----------------- CUSTOM COMPONENT STYLES -----------------------*/
+code-block {
+  display: block;
+  background-color: #222;
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow-x: auto;
+  font-family: 'Space Mono', monospace;
+  font-size: 16px;
+  color: #eee;
+  margin: 1rem 0;
+}

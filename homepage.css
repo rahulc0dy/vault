@@ -3,6 +3,7 @@
     background-image: url("components/backdrop-tiles/tiled-bg.svg");
     min-height: 100dvh;
     background-size: contain;
+    background-repeat: repeat;
   }
 }
 
@@ -151,7 +152,7 @@
   .feature-card-list {
     --padding: 1rem;
     --radius: 1rem;
-    --card-bg: var(--surface-3);
+    --card-bg: var(--surface-1);
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -168,7 +169,7 @@
       object-fit: contain;
       display: block;
       overflow: clip;
-      padding: var(--padding);
+      /*padding: var(--padding);*/
       box-sizing: border-box;
 
       background: var(--card-bg);
@@ -177,32 +178,36 @@
 
       &:hover img {
         filter: none;
+        object-position: top;
       }
 
 
       & img {
         isolation: isolate;
         width: 100%;
+        height: 200px;
         object-fit: cover;
         border-radius: calc(var(--radius) / 1.5);
         background: #0FF0DE;
-        filter: sepia(0%) hue-rotate(90deg);
-        mix-blend-mode: color-dodge;
+        filter: sepia(0%) hue-rotate(50deg);
+        /*mix-blend-mode: color-dodge;*/
         object-position: bottom;
         image-rendering: pixelated;
-        transition: filter 1s ease-in-out;
+        transition: all 1s ease-in-out;
       }
 
       & h4 {
         position: absolute;
-        bottom: var(--padding);
-        left: var(--padding);
+        height: 2rem;
+        bottom: 0;
+        left: 0;
         margin: 0;
         padding: var(--padding);
         background: var(--card-bg);
         border-radius: 0 var(--radius) 0 0;
         color: var(--text-clr);
-        transition: color 1s ease-in-out;
+        transition: all 1s ease-in-out;
+        box-shadow: -1rem 1rem 0 1rem var(--card-bg);
 
         &::before, &::after {
           content: "";
@@ -212,7 +217,9 @@
 
       &:hover h4 {
         color: var(--text-1);
+        translate: 1rem -1rem;
       }
+
     }
   }
 }

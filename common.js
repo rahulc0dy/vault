@@ -229,10 +229,9 @@ customElements.define("site-footer", class SiteFooter extends HTMLElement {
       <footer class="wrapper">
         <div class="container">
           <div class="row">
-            <div class="col-md-4">
-              <h3>About</h3>
-              <p>I'm a software engineer, musician, and artist. I'm currently working on my next project, a music player
-                that will be available for free on the web.</p>
+            <div class="">
+              <h3>Thanks for visiting. Look around and have fun.</h3>
+              <p>I'm a software engineer, designer, and artist.</p>
             </div>
             <div class="col-md-4">
               <h3>Contact</h3>
