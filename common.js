@@ -9,7 +9,7 @@ document.head.appendChild(preloadLink);
 const iconLink = document.createElement("link");
 iconLink.rel = "icon";
 iconLink.type = "image/png";
-iconLink.href = "../assets/images/me-icon.png";
+iconLink.href = "../assets/icons/me-icon.png";
 document.head.appendChild(iconLink);
 
 const webmentionLink = document.createElement("link");
@@ -21,6 +21,11 @@ const meta = document.createElement("meta");
 meta.name = "color-scheme";
 meta.content = "only dark";
 document.head.appendChild(meta);
+
+const commonStyles = document.createElement("link");
+commonStyles.rel = "stylesheet";
+commonStyles.href = "common.css";
+document.head.appendChild(commonStyles);
 
 const html = (() => {
   const staging = document.createElement("div");
@@ -278,14 +283,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setupAutoLoadComponents() {
     const components = [
-      ["art-gallery"],
-      ["article-footer"],
       ["blog-header"],
+      ["feature-card"],
       ["code-block"],
-      ["feature-card-carousel"],
-      ["now-playing"],
-      ["now-reading"],
-      ["right-now"],
     ];
 
     const intersectionObserver = new IntersectionObserver(
@@ -332,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
 autoLoadGlobalComponents();
 
 function autoLoadGlobalComponents() {
-  if (location.pathname.startsWith("/notes/")) {
-    import("/components/blog-header/blog-header.js");
+  if (location.pathname.startsWith("/stories/")) {
+    import("components/blog-header/blog-header.js");
   }
 }

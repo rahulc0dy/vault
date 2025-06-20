@@ -133,9 +133,7 @@
     }
 
   }
-}
 
-@layer components {
   .showcase-sections {
     & > img {
       width: 85px;
@@ -145,6 +143,66 @@
     & > h2 {
       font-style: italic;
       margin: 0;
+    }
+  }
+
+  .feature-card-list {
+    --padding: 1rem;
+    --radius: 1rem;
+    --card-bg: var(--surface-3);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1rem;
+    padding: 0;
+
+    & ::marker {
+      content: "";
+      display: none;
+    }
+
+    & feature-card {
+      position: relative;
+      object-fit: contain;
+      display: block;
+      padding: var(--padding);
+      box-sizing: border-box;
+
+      background: var(--card-bg);
+
+      border-radius: var(--radius);
+      transition: all 1s ease-in-out;
+
+      &:hover img {
+        filter: sepia(0%);
+        object-position: top;
+      }
+
+
+      & img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: calc(var(--radius) / 1.5);
+        filter: sepia(60%);
+        object-position: bottom;
+        image-rendering: pixelated;
+      }
+
+      & h4 {
+        position: absolute;
+        bottom: var(--padding);
+        left: var(--padding);
+        margin: 0;
+        padding: var(--padding);
+        background: var(--card-bg);
+        border-radius: 0 var(--radius) 0 0;
+        color: var(--text-clr);
+
+        &::before, &::after {
+          content: "";
+          position: absolute;
+        }
+      }
     }
   }
 }
