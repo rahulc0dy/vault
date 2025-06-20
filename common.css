@@ -135,6 +135,10 @@
   interpolate-size: allow-keywords;
 }
 
+::selection {
+  background: #B9DDDA80;
+}
+
 @layer base {
   :root {
     --surface-1: #040D0E;
@@ -145,7 +149,7 @@
     --overlay-1: rgba(17, 17, 17, 0.11);
     --overlay-2: #111;
 
-    --text-1: #B9DDDA;
+    --text-1: rgba(185, 221, 218, 0.5);
     --text-2: #ffffff;
     --text-3: #81afac;
 

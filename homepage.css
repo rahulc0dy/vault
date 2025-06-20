@@ -202,11 +202,16 @@
         background: var(--card-bg);
         border-radius: 0 var(--radius) 0 0;
         color: var(--text-clr);
+        transition: color 1s ease-in-out;
 
         &::before, &::after {
           content: "";
           position: absolute;
         }
+      }
+
+      &:hover h4 {
+        color: var(--text-1);
       }
     }
   }
