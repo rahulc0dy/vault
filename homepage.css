@@ -135,6 +135,8 @@
   }
 
   .showcase-sections {
+    margin-block-end: 3em;
+
     & > img {
       width: 85px;
       image-rendering: pixelated;
@@ -165,27 +167,30 @@
       position: relative;
       object-fit: contain;
       display: block;
+      overflow: clip;
       padding: var(--padding);
       box-sizing: border-box;
 
       background: var(--card-bg);
 
       border-radius: var(--radius);
-      transition: all 1s ease-in-out;
 
       &:hover img {
-        filter: sepia(0%);
-        object-position: top;
+        filter: none;
       }
 
 
       & img {
+        isolation: isolate;
         width: 100%;
         object-fit: cover;
         border-radius: calc(var(--radius) / 1.5);
-        filter: sepia(60%);
+        background: #0FF0DE;
+        filter: sepia(0%) hue-rotate(90deg);
+        mix-blend-mode: color-dodge;
         object-position: bottom;
         image-rendering: pixelated;
+        transition: filter 1s ease-in-out;
       }
 
       & h4 {

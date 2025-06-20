@@ -1,9 +1,11 @@
 customElements.define("feature-card", class extends HTMLElement {
   #feature;
+  #type;
 
   constructor() {
     super();
     this.#feature = this.getAttribute("feature");
+    this.#type = this.getAttribute("type");
   }
 
   connectedCallback() {
@@ -18,9 +20,9 @@ customElements.define("feature-card", class extends HTMLElement {
   getCardImage() {
     let image = "assets/images/default-feature-image.png";
     if (this.#feature) {
-      if (location.pathname.startsWith("/stories/")) image = `stories/${this.#feature}/${this.#feature}.png`;
-      else if (location.pathname.startsWith("/notes/")) image = `notes/${this.#feature}/${this.#feature}.png`;
-      else if (location.pathname.startsWith("/stories/")) image = `stories/${this.#feature}/${this.#feature}.png`;
+      if (this.#type === "story") image = `stories/${this.#feature}/${this.#feature}.png`;
+      else if (this.#type === "note") image = `notes/${this.#feature}/${this.#feature}.png`;
+      else if (this.#type === "project") image = `projects/${this.#feature}/${this.#feature}.png`;
     }
     return image;
   }
