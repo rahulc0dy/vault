@@ -119,8 +119,8 @@
 
   --backdrop: #B9DDDA19;
 
-  --overlay-1: #111;
-  --overlay-2: #111;
+  --overlay-1: rgba(17, 17, 17, 0.11);
+  --overlay-2: rgba(185, 221, 218, 0.2);
 
   --text-1: #B9DDDA;
   --text-2: #ffffff;
@@ -147,8 +147,6 @@
 
     --backdrop: #B9DDDA19;
 
-    --overlay-1: rgba(17, 17, 17, 0.11);
-    --overlay-2: #111;
 
     --text-1: rgba(185, 221, 218, 0.5);
     --text-2: #ffffff;

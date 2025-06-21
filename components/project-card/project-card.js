@@ -8,7 +8,7 @@ customElements.define("project-card", class extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = html`
-      <a href="http://github.com/rahulc0dy/${this.#project}">
+      <a target="_blank" referrerpolicy="no-referrer" href="http://github.com/rahulc0dy/${this.#project}">
         <img src=${this.getCardImage()} alt="story">
         <h4>${this.getCardTitle()}</h4>
       </a>

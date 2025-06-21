@@ -132,12 +132,16 @@
         margin-inline: auto;
       }
     }
-
   }
 
   .showcase-sections-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    gap: 2rem;
+    grid-row-gap: 4em;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
 
     & .showcase-section {
       margin-block-end: 3em;
@@ -204,7 +208,7 @@
         border-radius: calc(var(--radius) / 1.5);
         background: #0FF0DE;
         /*Teal overlay*/
-        filter: brightness(0.8) sepia(1) saturate(2) hue-rotate(160deg);
+        filter: brightness(0.8) sepia(1) saturate(2) hue-rotate(120deg);
         object-position: bottom;
         image-rendering: pixelated;
         transition: all 1s ease-in-out;
@@ -234,6 +238,67 @@
         translate: 1rem -1rem;
       }
 
+    }
+  }
+
+  .stories-container {
+    & .stories-list {
+
+
+      & ::marker {
+        content: "";
+      }
+
+      & a {
+        --text-1: #17e5d2;
+        font-family: Iosevka, "Space Mono", monospace;
+        text-decoration: none;
+        color: var(--text-2);
+        font-weight: bold;
+        font-size: 1rem;
+        font-style: italic;
+
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid var(--overlay-2);
+
+        &:hover {
+          color: var(--text-1);
+          background: var(--overlay-2);
+
+          & .story-date {
+            color: var(--text-2);
+          }
+        }
+      }
+
+      & .story-date {
+        font-weight: bold;
+        font-size: 0.8rem;
+        font-style: normal;
+        color: var(--text-3);
+        float: right;
+      }
+    }
+  }
+
+  .arts-container {
+    & .arts-list {
+      & img {
+        width: 100%;
+        aspect-ratio: 10 / 1;
+        object-fit: cover;
+        border-radius: 1rem;
+        object-position: top;
+        filter: brightness(0.8) sepia(1) saturate(2) hue-rotate(120deg);
+        transition: all 1s ease-in-out;
+
+        &:hover {
+          filter: none;
+          object-position: center;
+          aspect-ratio: 2/1;
+        }
+      }
     }
   }
 }
