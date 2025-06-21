@@ -14,32 +14,51 @@
 </head>
 <body>
 <site-navbar></site-navbar>
-<blog-header></blog-header>
-<h2></h2>
-<article>
-  For the past 5 years, I have been working with next js, and honestly I love it and it's been great. Whenever I wanted
-  to spin up a new web project, I couldn't think of anything except [Next.js](http://nextjs.org/). But since moving up
-  to semester 6 of my CSE degree, I was forced to go back to writing website with vanilla web technologies, and heck
-  even php which I honestly don't like.
+<header class="blog-header">
+  <h1>Going Back To The Roots</h1>
+  <p>
+    <span class="blog-date">21 June 2025</span> . <span class="read-time">4min read</span>
+  </p>
+</header>
+<article class="blog-content">
+  <p>For the past 5 years, I have been working with next js, and honestly I love it and it's been great. Whenever I
+    wanted
+    to spin up a new web project, I couldn't think of anything except <a href="http://nextjs.org/">Next.js</a>. But
+    since
+    moving up
+    to semester 6 of my CSE degree, I was forced to go back to writing website with vanilla web technologies, and heck
+    even php which I honestly don't like.</p>
 
-  But working with plain js and css, it's rewired my brain into thinking natively what the browser does. I did make a
-  portfolio website in framer, but I wanted to have a blog or more of a showcase of my work and maybe remaking my
-  portfolio. Recently I saw the news about gsap going free for everyone after the webflow acquisition. I was also really
-  impressed by [this guy](https://github.com/Kalabasa) with this [sick website](https://leanrada.com/) with his blogs
-  and arts [and what not](https://github.com/Kalabasa/leanrada.com). All of this combined made me think "heck, let's go
-  back to the roots". I wanted to utilise html css and plain js (and also gsap) to make interactive elements in my blogs
-  to make things interesting and understandable rather than being a plain old text article.
+  <p>
 
-  Working with plain old HTML, CSS and JavaScript I came into some rather anticipated issues. I wanted all of my blogs
-  to be separate html and CSS and with interactive elements. So I needed some kind of templating. I was attracted to
-  hono for it's built in capability to work with jsx. I wasn't sure if I want to work with hono, or any server for that
-  matter. It isn't something that would need server specifically.
+    But working with plain js and css, it's rewired my brain into thinking natively what the browser does. I did make a
+    portfolio website in framer, but I wanted to have a blog or more of a showcase of my work and maybe remaking my
+    portfolio. Recently I saw the news about gsap going free for everyone after the webflow acquisition. I was also
+    really
+    impressed by [this guy](https://github.com/Kalabasa) with this [sick website](https://leanrada.com/) with his blogs
+    and arts [and what not](https://github.com/Kalabasa/leanrada.com). All of this combined made me think "heck, let's
+    go
+    back to the roots". I wanted to utilise html css and plain js (and also gsap) to make interactive elements in my
+    blogs
+    to make things interesting and understandable rather than being a plain old text article.
+  </p>
+  <p>
+    Working with plain old HTML, CSS and JavaScript I came into some rather anticipated issues. I wanted all of my blogs
+    to be separate html and CSS and with interactive elements. So I needed some kind of templating. I was attracted to
+    hono for it's built in capability to work with jsx. I wasn't sure if I want to work with hono, or any server for
+    that
+    matter. It isn't something that would need server specifically.
+  </p>
 
-  Now, templates or htmx was not an option for me as I didn't want any extra unnecessary dependencies for this website.
-  So I settled for the web components api which allows native custom html elements in browsers. I took info from the
-  repo I mentioned before which did it in the same way with custom html elements for the headers, footers etc. It was a
-  rather tedious job to set up all the custom tags, css and animations for these elements primarily because I had no
-  idea that this existed.
+  <p>
+    Now, templates or htmx was not an option for me as I didn't want any extra unnecessary dependencies for this
+    website.
+    So I settled for the web components api which allows native custom html elements in browsers. I took info from the
+    repo I mentioned before which did it in the same way with custom html elements for the headers, footers etc. It was
+    a
+    rather tedious job to set up all the custom tags, css and animations for these elements primarily because I had no
+    idea that this existed.
+  </p>
 </article>
 </body>
 </html>

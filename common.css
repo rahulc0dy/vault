@@ -124,6 +124,7 @@
 
   --text-1: #B9DDDA;
   --text-2: #ffffff;
+  ---text-3: #c5c5c5;
 
   --bg-clr: var(--surface-1);
   --text-clr: var(--text-2);
@@ -141,7 +142,7 @@
 
 @layer base {
   :root {
-    --surface-1: #040D0E;
+    --surface-1: #061515;
     --surface-2: #0b2021;
 
     --backdrop: #B9DDDA19;
@@ -441,4 +442,47 @@ code-block {
   font-size: 16px;
   color: #eee;
   margin: 1rem 0;
+}
+
+
+/*------------------------ STORY STYLES ---------------------------*/
+header.blog-header {
+  margin-block: 2em;
+  margin-inline: auto;
+  width: min(700px, 100% - 2rem);
+  text-align: center;
+
+  & h1 {
+    font-style: italic;
+    margin-block: 2em;
+    letter-spacing: -0.05em;
+    color: var(--text-1);
+  }
+
+  & p {
+    font-family: "Space Mono", "Iosevka", sans-serif;
+    margin-block: 0.4em;
+    opacity: 0.6;
+
+  }
+}
+
+article.blog-content {
+  --text-3: #e8e8e8;
+  font-family: "Miriam Libre", "Space Mono", Iosevka, sans-serif;
+  font-weight: 400;
+  width: min(700px, 100% - 2rem);
+  margin-inline: auto;
+
+
+  & > p {
+    margin-block: 2em;
+    line-height: 2.5;
+    color: var(--text-3);
+    font-weight: 500;
+  }
+
+  & h3 {
+    font-family: Iosevka, "Space Mono", "Comic Sans MS", sans-serif;
+  }
 }
