@@ -170,6 +170,15 @@
     overflow-x: hidden;
   }
 
+  ul {
+    padding-left: 0;
+
+    & ::marker {
+      display: none;
+      content: "";
+    }
+  }
+
   a {
     color: var(--text-1);
 
@@ -432,6 +441,7 @@ kbd > kbd {
 
 
 /*----------------- CUSTOM COMPONENT STYLES -----------------------*/
+@layer components {
 code-block {
   display: block;
   background-color: #222;
@@ -444,6 +454,7 @@ code-block {
   margin: 1rem 0;
 }
 
+}
 
 /*------------------------ STORY STYLES ---------------------------*/
 header.blog-header {

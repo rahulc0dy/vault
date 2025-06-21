@@ -135,17 +135,31 @@
 
   }
 
-  .showcase-sections {
-    margin-block-end: 3em;
+  .showcase-sections-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
 
-    & > img {
-      width: 85px;
-      image-rendering: pixelated;
+    & .showcase-section {
+      margin-block-end: 3em;
+
+      & > img {
+        width: 85px;
+        aspect-ratio: 1;
+        image-rendering: pixelated;
+      }
+
+      & > h2 {
+        font-style: italic;
+        margin: 0;
+      }
     }
 
-    & > h2 {
-      font-style: italic;
-      margin: 0;
+    & .row-span-2 {
+      grid-row: span 2;
+    }
+
+    & .row-span-3 {
+      grid-row: span 3;
     }
   }
 
@@ -164,7 +178,7 @@
       display: none;
     }
 
-    & feature-card {
+    & project-card {
       position: relative;
       object-fit: contain;
       display: block;
@@ -189,8 +203,8 @@
         object-fit: cover;
         border-radius: calc(var(--radius) / 1.5);
         background: #0FF0DE;
-        filter: sepia(0%) hue-rotate(50deg);
-        /*mix-blend-mode: color-dodge;*/
+        /*Teal overlay*/
+        filter: brightness(0.8) sepia(1) saturate(2) hue-rotate(160deg);
         object-position: bottom;
         image-rendering: pixelated;
         transition: all 1s ease-in-out;

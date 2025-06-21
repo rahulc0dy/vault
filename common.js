@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupAutoLoadComponents() {
     const components = [
       ["blog-header"],
-      ["feature-card"],
+      ["project-card"],
       ["code-block"],
     ];
 
