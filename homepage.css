@@ -2,7 +2,7 @@
   body {
     background-image: url("components/backdrop-tiles/tiled-bg.svg");
     min-height: 100dvh;
-    background-size: contain;
+    background-size: 50%;
     background-repeat: repeat;
   }
 }
@@ -300,6 +300,12 @@
         }
       }
     }
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
   }
 }
 
