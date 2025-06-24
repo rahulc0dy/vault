@@ -285,6 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ["blog-header"],
       ["project-card"],
       ["code-block"],
+      ["github-heatmap"],
     ];
 
     const intersectionObserver = new IntersectionObserver(

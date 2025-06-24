@@ -134,18 +134,60 @@
       <img alt="stories" src="assets/icons/stories-icon.png">
       <a href="/stories">Stories</a>
     </div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
     <div>
+      <img alt="stories" src="assets/icons/potion-icon.png">
+      <a href="/projects">Projects</a>
+    </div>
+    <div class="row-span-2">
+      <github-heatmap></github-heatmap>
+    </div>
+    <div><img alt="stories" src="assets/icons/art-icon.png">
+      <a href="/art">My Art</a></div>
+    <div>
+      <last-played></last-played>
+    </div>
+    <div class="large-image row-span-2">
+      <img alt="" src="assets/images/default-feature-image.png">
+      <p>I am from Ituri</p>
+    </div>
+    <div><img alt="stories" src="assets/icons/music-icon.png">
+      <a href="/music">Music</a></div>
+    <div class="">
+      <img alt="random" class="sprite" src="assets/images/running-sprite-sheet.png">
+      <p>My Character</p>
+    </div>
+    <div class="large-image row-span-2">
+      <img alt="" src="assets/images/default-feature-image.png">
+      <p>Currently I am in Kolkata</p>
+    </div>
+    <div>
+      <img alt="linkedin" src="assets/icons/linkedin-icon.png">
+      <p>Right now I am looking for ideas and work.</p>
+    </div>
+    <div class="counter">
+      <p id="counter-display">
+        <span class="1">1</span><span class="2">2</span><span class="3">4</span><span class="4">5</span>
+      </p>
+      <script>
+        const counterDisplay = document.getElementById("counter-display");
+        let lastTime = 0;
+
+        function updateCounter(currentTime) {
+          if (currentTime - lastTime >= 80) {
+            const digits = Array.from({ length: 4 }, () => Math.floor(Math.random() * 10));
+            counterDisplay.innerHTML = digits.map((d, i) => `<span class="${i + 1}">${d}</span>`).join("");
+            lastTime = currentTime;
+          }
+          requestAnimationFrame(updateCounter);
+        }
+
+        requestAnimationFrame(updateCounter);
+      </script>
+    </div>
+    <div><p>Right now I am reading nothing.</p></div>
+    <div>
+      <img alt="meh" src="assets/icons/stick-figure-icon.png">
+      <p>Meh</p>
     </div>
   </section>
 </main>

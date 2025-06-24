@@ -158,13 +158,7 @@
       }
     }
 
-    & .row-span-2 {
-      grid-row: span 2;
-    }
 
-    & .row-span-3 {
-      grid-row: span 3;
-    }
   }
 
   .feature-card-list {
@@ -305,15 +299,121 @@
   .info-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 0.5rem;
+    place-content: center;
+    margin-block: 2em;
+
+    & a, p {
+      color: var(--text-2);
+      text-decoration: none;
+      font-family: Iosevka, "Space Mono", monospace;
+      font-weight: bold;
+      font-style: italic;
+      margin-block: 0.2em;
+      text-align: center;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      position: relative;
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 2px solid var(--overlay-2);
+      font-weight: bold;
+      isolation: isolate;
+      overflow: clip;
+
+      img {
+        display: block;
+        image-rendering: pixelated;
+        width: 3em;
+        aspect-ratio: 1;
+
+
+        &.sprite {
+          width: 3em;
+          aspect-ratio: 1;
+          animation: run 1s infinite steps(7);
+          object-fit: cover;
+        }
+      }
+
+      &.large-image {
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: -1;
+          position: absolute;
+          inset: 0;
+        }
+      }
+    }
+
+
+    github-heatmap {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(7, auto);
+      gap: 12px;
+    }
+
+    github-heatmap div {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      border-radius: 2px;
+      box-sizing: border-box;
+      background: #222c2c;
+      color: transparent;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    github-heatmap div::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--clr0-light, #54f8c1);
+    }
+
+    github-heatmap div[data-level="0"]::after {
+      opacity: 0;
+    }
+
+    github-heatmap div[data-level="1"]::after {
+      opacity: 0.3;
+    }
+
+    github-heatmap div[data-level="2"]::after {
+      opacity: 0.6;
+    }
+
+    github-heatmap div[data-level="3"]::after {
+      opacity: 1;
+    }
+
+    & .counter > p {
+      font-family: Iosevka, "Space Mono", monospace;
+      font-style: italic;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      font-size: 3em;
+    }
   }
 }
 
 @keyframes run {
   from {
     background-position: left;
+    object-position: left;
   }
   to {
     background-position: right;
+    object-position: right;
   }
 }
