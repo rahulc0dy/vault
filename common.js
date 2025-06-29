@@ -226,18 +226,41 @@ customElements.define("site-footer", class SiteFooter extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = html`
-      <footer class="wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="">
-              <h3>Thanks for visiting. Look around and have fun.</h3>
-              <p>I'm a software engineer, designer, and artist.</p>
+      <footer class="site-footer-content">
+        <div class="footer-main">
+          <div class="footer-section">
+            <h3>Thanks for visiting</h3>
+            <p>Look around and have fun exploring my digital vault.</p>
+            <p>I'm a software engineer, designer, and aspiring game developer who loves creating interactive experiences.</p>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <nav class="footer-nav">
+              <a href="/">Home</a>
+              <a href="/stories/">Stories</a>
+              <a href="/about/">About</a>
+              <a href="/art/">Art</a>
+              <a href="/music/">Music</a>
+            </nav>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Connect</h3>
+            <div class="footer-links">
+              <a href="https://portfolio-webapp.framer.ai" target="_blank" rel="noopener">Portfolio</a>
+              <a href="https://github.com/rahulc0dy" target="_blank" rel="noopener">GitHub</a>
+              <a href="mailto:contact@example.com">Email</a>
             </div>
-            <div class="col-md-4">
-              <h3>Contact</h3>
-              <p>You can reach me on <a href="https://portfolio-webapp.framer.ai">My Portfolio</a> or <a
-                href="https://github.com/rahulc0dy">GitHub</a>.</p>
-            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; ${new Date().getFullYear()} Rahul Chakraborty. Built with vanilla web technologies.</p>
+          <div class="footer-tech">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
           </div>
         </div>
       </footer>
