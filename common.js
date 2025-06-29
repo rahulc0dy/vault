@@ -309,6 +309,8 @@ document.addEventListener("DOMContentLoaded", () => {
       ["project-card"],
       ["code-block"],
       ["github-heatmap"],
+      ["now-playing"],
+      ["last-played"],
     ];
 
     const intersectionObserver = new IntersectionObserver(
