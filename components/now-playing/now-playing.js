@@ -17,28 +17,29 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
             display: block;
             background: var(--surface-2);
             border: 1px solid var(--overlay-2);
-            border-radius: 1rem;
-            padding: 1rem;
+            border-radius: 0.75rem;
+            padding: 0.75rem;
             font-family: 'Space Mono', monospace;
             position: relative;
             overflow: hidden;
-            min-height: 120px;
+            height: 100%;
+            box-sizing: border-box;
           }
 
           .now-playing-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            font-size: 0.8rem;
+            gap: 0.4rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-3);
             text-transform: uppercase;
             letter-spacing: 0.05em;
           }
 
           .now-playing-icon {
-            width: 12px;
-            height: 12px;
+            width: 8px;
+            height: 8px;
             background: var(--text-1);
             border-radius: 50%;
             animation: pulse 2s infinite;
@@ -46,19 +47,20 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
 
           .track-info {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 0.75rem;
           }
 
           .album-art {
-            width: 60px;
-            height: 60px;
-            border-radius: 0.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 0.4rem;
             background: linear-gradient(135deg, var(--text-1), var(--surface-3));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
             position: relative;
             overflow: hidden;
@@ -71,7 +73,7 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
           .album-art::before {
             content: "";
             position: absolute;
-            inset: 20%;
+            inset: 25%;
             background: var(--surface-1);
             border-radius: 50%;
           }
@@ -84,8 +86,8 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
           .track-title {
             font-weight: bold;
             color: var(--text-2);
-            font-size: 0.9rem;
-            margin: 0 0 0.25rem 0;
+            font-size: 0.8rem;
+            margin: 0 0 0.2rem 0;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -93,7 +95,7 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
 
           .track-artist {
             color: var(--text-3);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             margin: 0;
             white-space: nowrap;
             overflow: hidden;
@@ -104,12 +106,11 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            margin-top: 0.5rem;
           }
 
           .play-button {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             border: none;
             background: var(--text-1);
             border-radius: 50%;
@@ -118,7 +119,8 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
+            flex-shrink: 0;
           }
 
           .play-button:hover {
@@ -130,40 +132,48 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
             flex: 1;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.7rem;
+            gap: 0.4rem;
+            font-size: 0.6rem;
             color: var(--text-3);
+            min-width: 0;
           }
 
           .progress-bar {
             flex: 1;
-            height: 4px;
+            height: 3px;
             background: var(--overlay-1);
-            border-radius: 2px;
+            border-radius: 1.5px;
             overflow: hidden;
             cursor: pointer;
+            min-width: 40px;
           }
 
           .progress-fill {
             height: 100%;
             background: var(--text-1);
-            border-radius: 2px;
+            border-radius: 1.5px;
             transition: width 0.1s ease;
             width: 0%;
           }
 
+          .time-display {
+            font-size: 0.6rem;
+            color: var(--text-3);
+            white-space: nowrap;
+          }
+
           .sound-waves {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 0.5rem;
+            right: 0.5rem;
             display: flex;
-            gap: 2px;
+            gap: 1px;
             opacity: 0.3;
           }
 
           .wave {
-            width: 2px;
-            height: 20px;
+            width: 1.5px;
+            height: 12px;
             background: var(--text-1);
             border-radius: 1px;
             animation: wave 1.5s ease-in-out infinite;
@@ -176,8 +186,19 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
           .not-playing {
             text-align: center;
             color: var(--text-3);
-            font-size: 0.8rem;
-            padding: 2rem 1rem;
+            font-size: 0.7rem;
+            padding: 1rem 0.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+          }
+
+          .not-playing-icon {
+            font-size: 1.5rem;
+            opacity: 0.5;
           }
 
           @keyframes pulse {
@@ -193,19 +214,6 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
           @keyframes wave {
             0%, 100% { transform: scaleY(0.5); }
             50% { transform: scaleY(1); }
-          }
-
-          @media (max-width: 480px) {
-            .track-info {
-              flex-direction: column;
-              align-items: center;
-              text-align: center;
-            }
-
-            .album-art {
-              width: 80px;
-              height: 80px;
-            }
           }
         </style>`
     );
@@ -322,8 +330,8 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
     if (!this.#currentTrack) {
       this.innerHTML = html`
         <div class="not-playing">
-          <p>🎵 Nothing playing right now</p>
-          <p>Check back later for some tunes!</p>
+          <div class="not-playing-icon">🎵</div>
+          <p>Nothing playing</p>
         </div>
       `;
       return;
@@ -344,18 +352,20 @@ customElements.define("now-playing", class NowPlaying extends HTMLElement {
         <div class="track-details">
           <h4 class="track-title">${this.#currentTrack.title}</h4>
           <p class="track-artist">${this.#currentTrack.artist}</p>
-          <div class="track-controls">
-            <button class="play-button" onclick="this.closest('now-playing').togglePlay()">
-              ${this.#isPlaying ? '⏸' : '▶'}
-            </button>
-            <div class="progress-container">
-              <span class="current-time">${this.#formatTime(this.#currentTime)}</span>
-              <div class="progress-bar" onclick="this.closest('now-playing').handleProgressClick(event)">
-                <div class="progress-fill" style="width: ${progress}%"></div>
-              </div>
-              <span class="duration">${this.#formatTime(this.#duration)}</span>
-            </div>
+        </div>
+      </div>
+
+      <div class="track-controls">
+        <button class="play-button" onclick="this.closest('now-playing').togglePlay()">
+          ${this.#isPlaying ? '⏸' : '▶'}
+        </button>
+        <div class="progress-container">
+          <div class="progress-bar" onclick="this.closest('now-playing').handleProgressClick(event)">
+            <div class="progress-fill" style="width: ${progress}%"></div>
           </div>
+        </div>
+        <div class="time-display">
+          <span class="current-time">${this.#formatTime(this.#currentTime)}</span>
         </div>
       </div>
 
