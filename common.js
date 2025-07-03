@@ -9,7 +9,7 @@ document.head.appendChild(preloadLink);
 const iconLink = document.createElement("link");
 iconLink.rel = "icon";
 iconLink.type = "image/png";
-iconLink.href = "../assets/icons/me-icon.png";
+iconLink.href = "../assets/icons/alien-icon.png";
 document.head.appendChild(iconLink);
 
 const webmentionLink = document.createElement("link");
@@ -95,7 +95,8 @@ customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
         ${renderItem("/", "Home")}
         ${renderItem("/stories/", "Stories")}
         ${renderItem("/about/", "About")}
-        <img src="${iconSrc}" alt="" class="${iconSrc === "/assets/icons/sheet.png" ? "site-icon-sheet" : ""}">
+        <img loading="lazy" src="${iconSrc}" alt=""
+             class="${iconSrc === "/assets/icons/sheet.png" ? "site-icon-sheet" : ""}">
         ${renderItem("/quests/", "Quests")}
         ${renderItem("/art/", "Art")}
         ${renderItem("/music/", "Music")}
@@ -300,9 +301,19 @@ function debounce(fn, ms = 0) {
   };
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
   setupAutoLoadComponents();
   setupLQIP();
+  setupLazyLoading();
+
+  function setupLazyLoading() {
+    document.querySelectorAll("img").forEach(img => {
+      if (!img.hasAttribute("loading")) {
+        img.setAttribute("loading", "lazy");
+      }
+    });
+  }
 
   function setupAutoLoadComponents() {
     const components = [

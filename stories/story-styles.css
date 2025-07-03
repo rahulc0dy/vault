@@ -136,4 +136,43 @@ article.blog-content {
   }
 }
 
+h2 {
+  font-weight: bold;
+  letter-spacing: normal;
+  font-size: 2em;
+}
+
+.stories-container {
+  & li {
+    padding-block: 1rem;
+    display: block;
+    color: var(--text-1);
+    border-bottom: 1px solid var(--overlay-2);
+    transition: all 200ms ease-in;
+    font-style: italic;
+    font-weight: 400;
+
+    & a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &:hover {
+      background: var(--overlay-2);
+      color: var(--text-2);
+      padding-inline: 1rem;
+    }
+
+    & .story-date {
+      font-family: Iosevka;
+      font-size: 0.8em;
+      float: right;
+      font-weight: bold;
+      color: var(--text-3);
+      opacity: 80%;
+    }
+
+  }
+}
+
 
