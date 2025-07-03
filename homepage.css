@@ -303,6 +303,10 @@
     place-content: center;
     margin-block: 2em;
 
+    @media screen and (max-width: 650px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     & a, p {
       color: var(--text-2);
       text-decoration: none;
