@@ -1,0 +1,139 @@
+/*------------------------ STORY STYLES ---------------------------*/
+header.blog-header {
+  margin-block: 2em;
+  margin-inline: auto;
+  width: min(700px, 100% - 2rem);
+  text-align: center;
+
+  & h1 {
+    font-style: italic;
+    margin-block: 1em;
+    letter-spacing: -0.05em;
+    color: var(--text-1);
+  }
+
+  & p {
+    font-family: "Space Mono", "Iosevka", sans-serif;
+    margin-block: 0.4em;
+    opacity: 0.6;
+  }
+
+  & .tags span {
+    display: inline-block;
+    padding: 0 3px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    text-wrap: nowrap;
+    background: oklch(
+      from var(--tag-chip-color, #ccc) calc(max(l, 0.7)) calc(min(c, 0.15)) h
+    );
+    color: oklch(
+      from var(--tag-chip-color, #444) calc(l * 0.4) calc(c * 0.8) h
+    );
+    border-radius: 3px;
+
+    &::after {
+      content: attr(title);
+    }
+
+    &[title="✎hidden"] {
+      --tag-chip-color: #ffeeff;
+    }
+
+    /* content types */
+
+    &[title="essay"] {
+      --tag-chip-color: #eeeeee;
+    }
+
+    &[title="µpost"] {
+      --tag-chip-color: #aaaaaa;
+    }
+
+    &[title^="/"] {
+      --tag-chip-color: #ffffc5;
+    }
+
+    &[title="↗"] {
+      --tag-chip-color: #ffffff;
+    }
+
+    /* topics */
+
+    &[title="algo"] {
+      --tag-chip-color: #00ffff;
+    }
+
+    &[title="art"] {
+      --tag-chip-color: #ff88bb;
+    }
+
+    &[title="games"] {
+      --tag-chip-color: #00ff00;
+    }
+
+    &[title="keyboard"] {
+      --tag-chip-color: #77ccff;
+    }
+
+    /* brands */
+
+    &[title="c"] {
+      /* from gcc logo */
+      --tag-chip-color: #e2bb9e;
+    }
+
+    &[title="css"] {
+      --tag-chip-color: rebeccapurple;
+    }
+
+    &[title="js"] {
+      --tag-chip-color: #f7df1e;
+    }
+
+    &[title="html"] {
+      --tag-chip-color: #fcbe03;
+    }
+
+    &[title="rust"] {
+      --tag-chip-color: #f46623;
+    }
+
+    &[title="android"] {
+      --tag-chip-color: #3ddc84;
+    }
+  }
+
+}
+
+article.blog-content {
+  --tag-chip-color: #bbbbbb;
+
+  --text-3: #e8e8e8;
+  font-family: "Miriam Libre", "Space Mono", Iosevka, sans-serif;
+  font-weight: 400;
+  width: min(700px, 100% - 2rem);
+  margin-inline: auto;
+
+  & h5 {
+    font-family: "Space Mono";
+    font-size: 1.5em;
+    font-style: italic;
+    color: #b6b6b6;
+  }
+
+  & > p {
+    margin-block: 2em;
+    line-height: 2.5;
+    color: var(--text-3);
+    font-weight: 500;
+  }
+
+  & h3 {
+    font-family: Iosevka, "Space Mono", "Comic Sans MS", sans-serif;
+  }
+}
+
+
