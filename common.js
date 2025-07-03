@@ -39,7 +39,7 @@ document.head.appendChild(metaOgShortDescription);
 
 const metaOgImage = document.createElement("meta");
 metaOgImage.name = "og:image";
-metaOgImage.content = "assets/images/og-image.png";
+metaOgImage.content = "https://github.com/rahulc0dy/vault/blob/main/assets/images/og-image.png";
 document.head.appendChild(metaOgImage);
 
 const commonStyles = document.createElement("link");
