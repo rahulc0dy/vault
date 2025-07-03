@@ -307,6 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupAutoLoadComponents() {
     const components = [
       ["blog-header"],
+      ["blog-footer"],
       ["project-card"],
       ["code-block"],
       ["github-heatmap"],
@@ -359,6 +360,6 @@ autoLoadGlobalComponents();
 
 function autoLoadGlobalComponents() {
   if (location.pathname.startsWith("/stories/")) {
-    import("../../../Downloads/project-bolt-github-adgfvj25/project/components/blog-header/blog-header.js");
+    import("components/blog-header/blog-header.js");
   }
 }
