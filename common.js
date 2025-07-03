@@ -17,10 +17,30 @@ webmentionLink.rel = "webmention";
 webmentionLink.href = "https://portfolio-webapp.framer.ai";
 document.head.appendChild(webmentionLink);
 
-const meta = document.createElement("meta");
-meta.name = "color-scheme";
-meta.content = "only dark";
-document.head.appendChild(meta);
+const metaColorScheme = document.createElement("meta");
+metaColorScheme.name = "color-scheme";
+metaColorScheme.content = "only dark";
+document.head.appendChild(metaColorScheme);
+
+const metaOgTitle = document.createElement("meta");
+metaOgTitle.name = "og:title";
+metaOgTitle.content = "Vault";
+document.head.appendChild(metaOgTitle);
+
+const metaOgDescription = document.createElement("meta");
+metaOgDescription.name = "og:description";
+metaOgDescription.content = "Personal vault of Rahul Chakraborty.";
+document.head.appendChild(metaOgDescription);
+
+const metaOgShortDescription = document.createElement("meta");
+metaOgShortDescription.name = "og:short-description";
+metaOgShortDescription.content = "Personal vault of Rahul Chakraborty.";
+document.head.appendChild(metaOgShortDescription);
+
+const metaOgImage = document.createElement("meta");
+metaOgImage.name = "og:image";
+metaOgImage.content = "assets/images/og-image.png";
+document.head.appendChild(metaOgImage);
 
 const commonStyles = document.createElement("link");
 commonStyles.rel = "stylesheet";
