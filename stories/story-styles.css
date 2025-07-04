@@ -137,12 +137,23 @@ article.blog-content {
 }
 
 h2 {
+  margin-block: 2em;
   font-weight: bold;
   letter-spacing: normal;
   font-size: 2em;
+  color: var(--text-1);
+  text-align: center;
 }
 
 .stories-container {
+  & h3 {
+    font-family: Iosevka, "Space Mono", Iosevka, sans-serif;
+    font-weight: bold;
+    color: var(--text-2);
+    opacity: 80%;
+    font-style: italic;
+  }
+
   & li {
     padding-block: 1rem;
     display: block;
