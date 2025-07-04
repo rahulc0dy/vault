@@ -27,44 +27,164 @@
 <article class="blog-content">
   <h5>The Spark</h5>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur dolore, eius esse eum excepturi
-    illum incidunt iure iusto laborum libero, minima minus omnis perspiciatis placeat qui recusandae tenetur ullam, unde
-    voluptate! A assumenda debitis dolore dolores eligendi, enim exercitationem fuga laboriosam natus nesciunt nobis
-    nostrum optio quisquam, ratione, reiciendis.
+    Recently I saw a youtube video by Ed about how ASCII animations work in the ghostty terminal. <a
+    href="https://youtu.be/dUV8pobjZII">This is the video</a>.
   </p>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias consequatur deleniti dolor dolores ea eos
-    fugit iusto modi, mollitia officiis perferendis porro provident quidem similique temporibus velit, voluptas? At
-    corporis distinctio ducimus harum iste libero molestias neque non nostrum pariatur, porro possimus quidem quisquam
-    quo saepe unde voluptatem voluptatum?
+    He shows how the ghostty webpage has this cool ghost animation with ASCII characters. Though it seems kind of
+    simple, but no sooner I found out it very much isn't. I have been fascinated by ASCII art for a long time and I did
+    a little side quest of converting images into ASCII art (or so) with rust.
   </p>
-  <h5>Header</h5>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deserunt error inventore laborum temporibus,
-    voluptas? Consectetur dolor, dolorem ducimus exercitationem harum impedit incidunt magnam modi nam necessitatibus
-    nesciunt quas quidem sit velit vero. Dolore fuga laboriosam minus neque perspiciatis praesentium ratione, sapiente
-    tempora vel? Consequuntur eveniet laudantium officiis voluptate voluptatem.
+    This was mainly taken from the rustfully discord server. If you are interested, you can see it <a
+    href="https://github.com/rahulc0dy/side-quests/tree/main/image-to-ascii">here.</a> I will be using it later for the
+    animation too.
   </p>
+  <p>
+    I also saw many people use this old school but
+  <pre style="color: var(--text-1)">
+   █████╗ ███╗   ███╗ █████╗ ███████╗██╗███╗   ██╗ ██████╗
+  ██╔══██╗████╗ ████║██╔══██╗╚══███╔╝██║████╗  ██║██╔════╝
+  ███████║██╔████╔██║███████║  ███╔╝ ██║██╔██╗ ██║██║  ███╗
+  ██╔══██║██║╚██╔╝██║██╔══██║ ███╔╝  ██║██║╚██╗██║██║   ██║
+  ██║  ██║██║ ╚═╝ ██║██║  ██║███████╗██║██║ ╚████║╚██████╔╝
+  ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝
+	</pre>
+  text style for their texts. Maybe I'll try this in my next <a href="https://github.com/rahulc0dy/side-quests">side
+  quest</a>
+  </p>
+  <p>
+    The next few paragraphs have a lot of yapping about my struggles. If you do not care about my issues and efforts, <a
+    href="#main-content">click here to skip to the main part</a>.
+  </p>
+  <h5>Trying to understand the ASCII</h5>
+  <p>
+    So, how do the ascii animations work? It is essentially like all other animations with frames which swap in a
+    sequence. So technically you can just put a video element in your webpage to get this effect.
+  </p>
+  <p>
+    But that is no fun, is it? Also this works on a website or app but how do you get this in a terminal so that you can
+    flex your riced linux with fancy themes.
+  </p>
+  <h5>Reusing past learnings</h5>
+  <p>
+    As I mentioned, in the past I have made (or rather copied mostly,) an image to ascii converter with rust. I thought
+    I would do the same for the animations. The problem was, the rust image to ascii converter that I had, took colors
+    from the image and rendered it in the console with ANSI colors. So, I just figured I wouldn't take the colors this
+    time or maybe try the same with ANSI colors.
+  </p>
+  <p>
+    Now, How do I get the frames for my animation, even if I take out the frames from a simple animation with something
+    like ffmpeg, it is certainly not efficient to convert them to ascii one by one. I could use my rust program here,
+    but I will have to store the ascii text so that I don't convert the video to frames or frames to ascii every time I
+    run it. It will effectively be cached in a <code>.txt</code> file let's say.
+  </p>
+  <h5>Understanding what was already done</h5>
+  <p>
+    Let's look back at what the rust implementation of the image to ascii converter did. I was using two crates for this
+    program, the <code>image</code> and the <code>clap</code> crates.
+  </p>
+  <code-block language="toml"><pre><code>
+[package]
+name = "image-to-ascii"
+version = "0.1.0"
+edition = "2024"
 
+[dependencies]
+clap = { version = "4.5.37", features = ["derive"] }
+image = "0.25.6"
+</code></pre>
+  </code-block>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aut delectus labore maxime nostrum, numquam porro quod
-    repellat ullam veritatis? Asperiores cumque cupiditate natus odio quam? Blanditiis, commodi cumque doloribus ducimus
-    ea, enim error harum magnam quod reiciendis rerum sed soluta tempora totam ullam voluptatem voluptatum. Atque eaque,
-    enim! Temporibus.
+    At the top of the program, I had an ASCII lookup table for looking up the correct character based on the density, or
+    fill of the required box.
+  </p>
+  <code-block language="rust">
+<pre><code>
+const ASCII_LOOKUP: [&str; 16] = [
+    " ", // 0000 - Empty space
+    "~", // 0001 - Bottom-left corner
+    "$", // 0010 - Bottom-right corner
+    ">", // 0011 - Bottom edge
+    "╶", // 0100 - Top-left corner
+    "=", // 0101 - Left edge
+    ">", // 0110 - Diagonal (top-left to bottom-right)
+    "=", // 0111 - Heavy horizontal
+    "^", // 1000 - Top-right corner
+    "+", // 1001 - Diagonal (top-right to bottom-left)
+    "$", // 1010 - Right edge
+    "$", // 1011 - Heavy right side
+    "~", // 1100 - Top edge
+    "*", // 1101 - Heavy intersection
+    "@", // 1110 - Heavy bottom
+    "#", // 1111 - Full block
+];
+</code></pre>
+  </code-block>
+  <p>
+    The next step I did was setup command line arguments using clap. These were used to set options for the input and
+    output of the program.
+  </p>
+  <code-block language="rust" languagecode="rust"><pre><code>
+  #[derive(Parser)]
+  struct Cli {
+  #[clap(name = "path")]
+  input_path: String,
+
+  #[clap(short, long)]
+  gray_scale: bool,
+
+  #[clap(short, long)]
+  #[clap(long, default_value = "20")]
+  width: u32,
+
+  #[clap(long, default_value = "20")]
+  height: u32,
+
+  #[clap(short, long)]
+  output: Option&lt;String&gt;,
+
+  #[clap(
+    long,
+    help = "The program will save the image produced for the asciifying to a file"
+  )]
+  save_intermediate: Option&lt;String&gt;,
+
+  #[clap(short, long)]
+  fattness: Option&lt;f32&gt;
+</code></pre>
+  </code-block>
+  <p>
+    I resized the image to the width and height as passed through the CLI. The image crate retrieved the x, y and
+    rgba values of each pixel of the image. I set the transparent pixels as a whitespace " " to keep the
+    transparency of png images. The rest of the code was just looking up the correct character from the lookup
+    table created earlier and setting appropriate colors for the characters from these obtained values.
+  </p>
+  <h5>Getting frames for the animations</h5>
+  <p>
+    The first thing needed for the animation are the frames that we will animate eventually. Download any small
+    and simple animation or video you like. The more contrast it has between the background and the subject, the
+    better the translation into ASCII.
   </p>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut doloribus harum inventore nemo, sed
-    voluptates! A accusamus accusantium aliquam aperiam asperiores autem delectus dolore eligendi error expedita facilis
-    harum impedit iure mollitia non pariatur quia rem rerum sapiente sequi tempora temporibus, totam voluptatibus!
-    Commodi ipsum possimus quos reprehenderit ut!
+    ffmpeg is a great tool to use now. We retrieve the frames from the video just downloaded with the following
+    command <code>ffmpeg -i input.mp4 frame_%04d.jpg</code> . This command extracts all the frames from the video.
   </p>
-  <h5>Header</h5>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, asperiores at blanditiis culpa distinctio, eius eos
-    fugit iste labore libero mollitia nemo non obcaecati officia, omnis perferendis quia quibusdam quidem quod
-    reprehenderit similique tempora tenetur velit voluptas voluptatibus. Adipisci beatae fugiat impedit ipsum nam
-    nesciunt odio perferendis sunt temporibus totam.
+    If the video is a five-second video shot at 25 frames per second (fps). This means each second of the video
+    has 25 frames. Running the above command for this video will generate 125 frames (5 x 25 = 125 frames). And if
+    you were to run it for a 60-second video shot at 30 frames per second, you would get 1800 images (60 x 30 =
+    1800 frames).
   </p>
+  <h5>Generating ASCII maps for the frames</h5>
+  <p>
+    We already have the program to convert images to ASCII maps. We can make a simple modification to run the
+    program with a loop on all the frame(images).
+  </p>
+  <code-block><pre><code>
+Code here
+</code></pre>
+  </code-block>
 </article>
 <site-footer></site-footer>
 </body>

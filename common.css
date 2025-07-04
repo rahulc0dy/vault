@@ -584,16 +584,11 @@ kbd > kbd {
 
 /*----------------- CUSTOM COMPONENT STYLES -----------------------*/
 @layer components {
-  code-block {
-    display: block;
-    background-color: #222;
-    padding: 1rem;
-    border-radius: 1rem;
-    overflow-x: auto;
-    font-family: 'Space Mono', monospace;
-    font-size: 16px;
-    color: #eee;
-    margin: 1rem 0;
+  code:not(code-block code) {
+    font-family: monospace;
+    font-size: 1rem;
+    background: #1c2322;
+    color: #ddeaff;
   }
 
   .tags span {
