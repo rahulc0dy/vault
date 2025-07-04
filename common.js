@@ -137,11 +137,11 @@ customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
   }
 
   #getIconSrc() {
-    if (this.#isSelected("/stories/")) return "/assets/icons/story.png";
-    if (this.#isSelected("/about/")) return "/assets/icons/person.png";
-    if (this.#isSelected("/quests/")) return "/assets/icons/quest.png";
-    if (this.#isSelected("/art/")) return "/assets/icons/art.png";
-    if (this.#isSelected("/music/")) return "/assets/icons/music.png";
+    if (this.#isSelected("/stories/")) return "/assets/icons/stories-icon.png";
+    if (this.#isSelected("/about/")) return "/assets/icons/me-icon.png";
+    if (this.#isSelected("/quests/")) return "/assets/icons/stick-figure-icon.png";
+    if (this.#isSelected("/art/")) return "/assets/icons/art-icon.png";
+    if (this.#isSelected("/music/")) return "/assets/icons/music-icon.png";
     return "/assets/icons/sheet.png";
   }
 
