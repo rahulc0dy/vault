@@ -1,6 +1,6 @@
 const preloadLink = document.createElement("link");
 preloadLink.rel = "preload";
-preloadLink.href = "../assets/fonts/Iosevka-Bold.ttf";
+preloadLink.href = "/assets/fonts/Iosevka-Bold.ttf";
 preloadLink.as = "font";
 preloadLink.type = "font/ttf";
 preloadLink.crossOrigin = "anonymous";
@@ -9,7 +9,7 @@ document.head.appendChild(preloadLink);
 const iconLink = document.createElement("link");
 iconLink.rel = "icon";
 iconLink.type = "image/png";
-iconLink.href = "../assets/icons/alien-icon.png";
+iconLink.href = "/assets/icons/alien-icon.png";
 document.head.appendChild(iconLink);
 
 const webmentionLink = document.createElement("link");
