@@ -155,7 +155,7 @@
       }
 
       async #init() {
-        await import("../../lib/prism/prism.js");
+        await import("/lib/prism/prism.js");
 
         const language = this.getAttribute("language") ?? "clike";
         const languageCode = this.getAttribute("languagecode");
