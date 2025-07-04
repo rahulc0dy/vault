@@ -24,6 +24,22 @@
 }
 
 @font-face {
+  font-family: "JetBrains Mono";
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+  src: url("assets/fonts/JetBrainsMono[wght].ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-display: swap;
+  font-weight: normal;
+  font-style: italic;
+  src: url("assets/fonts/JetBrainsMono-Italic[wght].ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Miriam Libre";
   font-display: swap;
   font-weight: 200;
@@ -584,11 +600,25 @@ kbd > kbd {
 
 /*----------------- CUSTOM COMPONENT STYLES -----------------------*/
 @layer components {
+  code-block {
+    display: block;
+    overflow-x: auto;
+    padding: 0 18px;
+    border-radius: 12px;
+    scrollbar-width: none;
+    background: #161e1e;
+    font-family: "JetBrains Mono", monospace;
+  }
+
   code:not(code-block code) {
-    font-family: monospace;
-    font-size: 1rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: .9em;
     background: #1c2322;
     color: #ddeaff;
+    padding: 3px;
+    padding-inline: 5px;
+    font-style: italic;
+    font-weight: 100;
   }
 
   .tags span {
