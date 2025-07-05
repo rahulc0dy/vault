@@ -160,29 +160,127 @@ fattness: Option&lt;f32&gt;
   </p>
   <h5>Getting frames for the animations</h5>
   <p>
-    The first thing needed for the animation are the frames that we will animate eventually. Download any small
-    and simple animation or video you like. The more contrast it has between the background and the subject, the
-    better the translation into ASCII.
+    The first thing needed for the animation are the frames that we will animate eventually. Download any small and
+    simple animation or video you like. The more contrast it has between the background and the subject, the better the
+    translation into ASCII.
   </p>
   <p>
-    ffmpeg is a great tool to use now. We retrieve the frames from the video just downloaded with the following
-    command <code>ffmpeg -i input.mp4 frame_%04d.jpg</code> . This command extracts all the frames from the video.
+    ffmpeg is a great tool to use now. We retrieve the frames from the video just downloaded with the following command
+    <code>ffmpeg -i input.mp4 frame_%04d.jpg</code> . This command extracts all the frames from the video.
   </p>
   <p>
-    If the video is a five-second video shot at 25 frames per second (fps). This means each second of the video
-    has 25 frames. Running the above command for this video will generate 125 frames (5 x 25 = 125 frames). And if
-    you were to run it for a 60-second video shot at 30 frames per second, you would get 1800 images (60 x 30 =
-    1800 frames).
+    If the video is a five-second video shot at 25 frames per second (fps). This means each second of the video has 25
+    frames. Running the above command for this video will generate 125 frames (5 x 25 = 125 frames). And if you were to
+    run it for a 60-second video shot at 30 frames per second, you would get 1800 images (60 x 30 = 1800 frames).
   </p>
-  <h5>Generating ASCII maps for the frames</h5>
-  <p>
-    We already have the program to convert images to ASCII maps. We can make a simple modification to run the
-    program with a loop on all the frame(images).
-  </p>
-  <code-block><pre><code>
-Code here
+  <h5>Code Modification and setup for the animation part</h5>
+  I set up similar command line options as the previous program.
+  <code-block language="rust">
+<pre><code>#[derive(Parser)]
+struct Cli {
+    #[clap(name = "path", help = "Path to the input file (image or video)")]
+    file_name: String,
+
+    #[clap(
+        long,
+        default_value = "true",
+        help = "Process a video file as an animation"
+    )]
+    animation: bool,
+
+    #[clap(
+        short,
+        long,
+        help = "Use grayscale ASCII characters instead of colored output"
+    )]
+    gray_scale: bool,
+
+    #[clap(short, long, default_value = "20", help = "Width of the ASCII output")]
+    width: u32,
+
+    #[clap(long, default_value = "20", help = "Height of the ASCII output")]
+    height: u32,
+
+    #[clap(short, long, help = "Output directory for the ASCII text frames")]
+    output: Option&lt;String&gt;,
+
+    #[clap(long, help = "Save the resized image used for ASCII conversion")]
+    save_intermediate: Option&lt;String&gt;,
+
+    #[clap(short, long, help = "Adjust the width scaling factor")]
+    fatness: Option&lt;f32&gt;,
+
+    #[clap(
+        long,
+        default_value = "24",
+        help = "Frames per second for animation extraction"
+    )]
+    fps: u32,
+
+    #[clap(long, help = "Play the animation after processing")]
+    play: bool,
+
+    #[clap(
+        long,
+        default_value = "41",
+        help = "Milliseconds delay between frames during playback"
+    )]
+    delay: u64,
+
+    #[clap(long, help = "Keep intermediate frame images after processing")]
+    keep_frames: bool,
+}
 </code></pre>
   </code-block>
+  <h5>Generating ASCII maps for the frames</h5>
+  <p>
+    The image extraction part was just calling the ffmpeg command I previously showed within rust. Although you could
+    use any other tool to extract the frames from the video. I used ffmpeg because it is a very popular tool and
+    available on most systems.
+  </p>
+  <code-block language="rust">
+<pre><code>fn extract_frames_from_video&lt;P: AsRef&lt;Path&gt;&gt;(
+    video_path: P,
+    output_dir: P,
+    fps: u32,
+) -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+    let output_pattern = output_dir.as_ref().join("frame_%04d.png");
+
+    let status = Command::new("ffmpeg")
+        .arg("-i")
+        .arg(video_path.as_ref())
+        .arg("-vf")
+        .arg(format!("fps={}", fps))
+        .arg("-pix_fmt")
+        .arg("rgb24")
+        .arg(output_pattern)
+        .status()?;
+
+    if !status.success() {
+        return Err("ffmpeg command failed".into());
+    }
+    Ok(())
+}
+</code></pre>
+  </code-block>
+  <p>
+    We already have the program to convert images to ASCII maps. We can make a simple modification to run the program
+    with a loop on all the frame(images).
+  </p>
+  <p>
+    If you want to see the rest of the code, you can see it on my <a
+    href="https://github.com/rahulc0dy/side-quests/tree/main/ascii-animations">github repo</a>.
+  </p>
+  <h5>The result</h5>
+  <p>
+    Here is a demo video of the animation.
+  </p>
+  <video autoplay loop style="border-radius: 18px" width="500">
+    <source src="demo-video.mp4" type="video/mp4">
+  </video>
+  <p>The ascii output wasn't as smooth, and also my video choice was not particularly good</p>
+  <video autoplay loop src="demo-output.mp4" style="border-radius: 18px" width="500"></video>
+  <p>That's all in this story, see you in the next one.</p>
 </article>
 <site-footer></site-footer>
 </body>
