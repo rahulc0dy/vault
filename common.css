@@ -600,15 +600,22 @@ kbd > kbd {
 
 /*----------------- CUSTOM COMPONENT STYLES -----------------------*/
 @layer components {
+  code {
+    font-family: "JetBrains Mono", monospace;
+  }
+
   code-block {
     display: block;
     overflow-x: auto;
     padding: 0 18px;
     border-radius: 12px;
     scrollbar-width: none;
-    background: #161e1e;
+    font-size: .9em;
+    font-weight: 100;
+    background: #161b1e;
     font-family: "JetBrains Mono", monospace;
   }
+
 
   code:not(code-block code) {
     font-family: "JetBrains Mono", monospace;

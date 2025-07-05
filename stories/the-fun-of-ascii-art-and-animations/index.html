@@ -85,8 +85,7 @@
     Let's look back at what the rust implementation of the image to ascii converter did. I was using two crates for this
     program, the <code>image</code> and the <code>clap</code> crates.
   </p>
-  <code-block language="toml"><pre><code>
-[package]
+  <code-block language="toml"><pre><code>[package]
 name = "image-to-ascii"
 version = "0.1.0"
 edition = "2024"
@@ -101,8 +100,7 @@ image = "0.25.6"
     fill of the required box.
   </p>
   <code-block language="rust">
-<pre><code>
-const ASCII_LOOKUP: [&str; 16] = [
+<pre><code>const ASCII_LOOKUP: [&str; 16] = [
     " ", // 0000 - Empty space
     "~", // 0001 - Bottom-left corner
     "$", // 0010 - Bottom-right corner
@@ -126,8 +124,7 @@ const ASCII_LOOKUP: [&str; 16] = [
     The next step I did was setup command line arguments using clap. These were used to set options for the input and
     output of the program.
   </p>
-  <code-block language="rust" languagecode="rust"><pre><code>
-#[derive(Parser)]
+  <code-block language="rust" languagecode="rust"><pre><code>#[derive(Parser)]
 struct Cli {
 #[clap(name = "path")]
 input_path: String,

@@ -27,7 +27,7 @@
                   min-width: 100%;
                   box-sizing: border-box;
                   border-radius: 18px;
-                  font-family: var(--default-font, monospace);
+                  font-family: "JetBrains Mono", monospace;
                   font-size: 15px;
                   line-height: 1.6;
                   background: var(--overlay-1);
