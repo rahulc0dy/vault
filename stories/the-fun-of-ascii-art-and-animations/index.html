@@ -43,7 +43,7 @@
   </p>
   <p>
     I also saw many people use this old school but
-  <pre style="color: var(--text-1)">
+  <pre style="color: var(--text-1); font-size: min(1rem, 2vw);">
    █████╗ ███╗   ███╗ █████╗ ███████╗██╗███╗   ██╗ ██████╗
   ██╔══██╗████╗ ████║██╔══██╗╚══███╔╝██║████╗  ██║██╔════╝
   ███████║██╔████╔██║███████║  ███╔╝ ██║██╔██╗ ██║██║  ███╗
@@ -127,32 +127,32 @@ const ASCII_LOOKUP: [&str; 16] = [
     output of the program.
   </p>
   <code-block language="rust" languagecode="rust"><pre><code>
-  #[derive(Parser)]
-  struct Cli {
-  #[clap(name = "path")]
-  input_path: String,
+#[derive(Parser)]
+struct Cli {
+#[clap(name = "path")]
+input_path: String,
 
-  #[clap(short, long)]
-  gray_scale: bool,
+#[clap(short, long)]
+gray_scale: bool,
 
-  #[clap(short, long)]
-  #[clap(long, default_value = "20")]
-  width: u32,
+#[clap(short, long)]
+#[clap(long, default_value = "20")]
+width: u32,
 
-  #[clap(long, default_value = "20")]
-  height: u32,
+#[clap(long, default_value = "20")]
+height: u32,
 
-  #[clap(short, long)]
-  output: Option&lt;String&gt;,
+#[clap(short, long)]
+output: Option&lt;String&gt;,
 
-  #[clap(
-    long,
-    help = "The program will save the image produced for the asciifying to a file"
-  )]
-  save_intermediate: Option&lt;String&gt;,
+#[clap(
+  long,
+  help = "The program will save the image produced for the asciifying to a file"
+)]
+save_intermediate: Option&lt;String&gt;,
 
-  #[clap(short, long)]
-  fattness: Option&lt;f32&gt;
+#[clap(short, long)]
+fattness: Option&lt;f32&gt;
 </code></pre>
   </code-block>
   <p>
