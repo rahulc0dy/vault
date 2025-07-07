@@ -1,7 +1,33 @@
-.hero-header {
-  font-family: "Basement Grotesque", Iosevka, serif;
-  font-size: 3em;
-  text-transform: uppercase;
-  text-align: center;
+.side-quest-link {
+  display: inline;
+  align-items: center;
+  font-size: 1.2em;
+  gap: 1rem;
+}
 
+.side-quest-list {
+  font-size: 1.1em;
+  font-weight: bold;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 1em;
+
+  & li {
+    transition: all 200ms ease-in;
+    margin-bottom: 1em;
+    width: max-content;
+
+    & a {
+      text-decoration: none;
+    }
+
+    &:hover {
+      translate: 0 -.3em;
+      scale: 1.2;
+      text-shadow: 0 0 1rem var(--text-1);
+    }
+  }
 }
