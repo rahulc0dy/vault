@@ -20,9 +20,8 @@
     <span class="blog-date">20 July 2025</span> . <span class="read-time">7min read</span>
   </p>
   <div class="tags">
-    <span title="html"></span>
-    <span title="css"></span>
-    <span title="js"></span>
+    <span title="cpp"></span>
+    <span title="graphics"></span>
   </div>
 </header>
 <article class="blog-content">
@@ -54,15 +53,49 @@
     The real solution would be to fix my f****ing internet connection. But that wasn't upto me, I was using mobile
     internet and I didn't have wifi at home.
   </p>
+  <p>
+    So I thought "what if shadertoy was offline?". I tried to run the website locally, but I couldn't. I searched for
+    a local version of shadertoy, i.e. something that could display shaders on my local machine. Most of the solutions
+    were either too much for what I wanted or didn't work. So I decided to take matters into my own hands.
+  </p>
+  <img alt="fine I will do it myself" src="https://media1.tenor.com/m/u8YEMwIfJGMAAAAC/thanos.gif" style="width: 100%">
+  <p>
+    The plan was to make a simple application that would display the shaders on my local machine. A simple
+    <code>glfw</code>, <code>glad</code> and <code>imgui</code> application would do just fine.
+  </p>
 
   <h5>Issues I faced</h5>
   <p>
-
+    The first issue was obviously linking the libraries with cmake. I tried to link <code>glfw</code>,
+    <code>glad</code> and <code>imgui</code> but the linker errors just fried my brain. Somehow the linking
+    problem was solved.
+  </p>
+  <p>
+    I downloaded <code>glad</code> with OpenGL 4.6 and all the extensions. <strong>Yes, all of them</strong>.
+    Through exhausting searches on <i>Stack Overflow</i> and <i>Google</i>, finally the shaders were showing up
+    on screen. Next step was to make an interface with <code>imgui</code> so that the user can use shader files
+    from his local machine. That was not really a problem, I just had to figure out how to do it, and I did.
+    I also added a dropdown for the available OpenGl extensions. And a little note for people copy pasting shaders
+    from <i>shadertoy</i>.
   </p>
 
-  <h5>Result</h5>
+  <h5>Adding on the base</h5>
   <p>
+    The shaders were loading correctly but at this point the path to the directory that had the shader files
+    was hardcoded into the executable. A native file picker would be appropriate. For this I found a library
+    called <code>tinyfiledialogs</code>. Also added some things like a default shader, the option to only load
+    fragment shaders and use a default vertex shader.
+  </p>
 
+  <h5>Results</h5>
+  <p>
+    The result was satisfactory for me. The goal never was to make a huge application for making shaders, just
+    a place to view shaders locally that was simple and easy. Not sure if there is a better plan for this
+    project in the future.
+  </p>
+  <p>
+    The last thing would be to add hot reloading for the shaders. I was thinking of using <code>watchdog</code>
+    for this. But I didn't have time to do it. I will edit this story if I do it in the future.
   </p>
 </article>
 <site-footer></site-footer>
