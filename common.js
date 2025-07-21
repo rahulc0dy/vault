@@ -272,7 +272,7 @@ customElements.define("site-footer", class SiteFooter extends HTMLElement {
             <div class="footer-links">
               <a href="https://portfolio-webapp.framer.ai" target="_blank" rel="noopener">Portfolio</a>
               <a href="https://github.com/rahulc0dy" target="_blank" rel="noopener">GitHub</a>
-              <a href="mailto:contact@example.com">Email</a>
+              <a href="mailto:codyrahulop@gmail.com">Email</a>
             </div>
           </div>
         </div>

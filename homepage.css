@@ -296,6 +296,59 @@
     }
   }
 
+  .quests-section {
+    & > img {
+      width: 85px;
+      aspect-ratio: 1;
+      image-rendering: pixelated;
+    }
+
+    & > h2 {
+      font-style: italic;
+      margin: 0;
+    }
+
+
+    .side-quest-list {
+      padding-left: 2em;
+      font-family: monospace;
+      font-weight: bold;
+
+      & li {
+        text-shadow: 3px 3px 0 rgba(227, 227, 227, 0.26);
+        font-style: italic;
+
+        &:hover::marker {
+          color: #00ff8e;
+        }
+
+        &::marker {
+          content: ":> ";
+          color: var(--text-1);
+          font-size: 1em;
+          font-weight: bold;
+          font-style: italic;
+          transition: all 300ms ease-in-out;
+        }
+
+        padding-block: 0.5em;
+        font-size: 1.2em;
+        transition: all 300ms ease-in-out;
+        width: max-content;
+
+        &:hover {
+          color: var(--text-1);
+          padding-inline-start: 1em;
+        }
+      }
+
+      & li a {
+        color: var(--text-2);
+        text-decoration: none;
+      }
+    }
+  }
+
   .info-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
