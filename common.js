@@ -113,13 +113,13 @@ customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
     this.innerHTML = html`
       <nav>
         ${renderItem("/", "Home")}
-        ${renderItem("/stories/", "Stories")}
-        ${renderItem("/about/", "About")}
+        ${renderItem("/stories", "Stories")}
+        ${renderItem("/about", "About")}
         <img loading="lazy" src="${iconSrc}" alt=""
              class="${iconSrc === "/assets/icons/sheet.png" ? "site-icon-sheet" : ""}">
-        ${renderItem("/quests/", "Quests")}
-        ${renderItem("/art/", "Art")}
-        ${renderItem("/music/", "Music")}
+        ${renderItem("/quests", "Quests")}
+        ${renderItem("/art", "Art")}
+        ${renderItem("/music", "Music")}
       </nav>`;
 
     const passive = { passive: true };
@@ -137,11 +137,11 @@ customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
   }
 
   #getIconSrc() {
-    if (this.#isSelected("/stories/")) return "/assets/icons/stories-icon.png";
-    if (this.#isSelected("/about/")) return "/assets/icons/me-icon.png";
-    if (this.#isSelected("/quests/")) return "/assets/icons/stick-figure-icon.png";
-    if (this.#isSelected("/art/")) return "/assets/icons/art-icon.png";
-    if (this.#isSelected("/music/")) return "/assets/icons/music-icon.png";
+    if (this.#isSelected("/stories")) return "/assets/icons/stories-icon.png";
+    if (this.#isSelected("/about")) return "/assets/icons/me-icon.png";
+    if (this.#isSelected("/quests")) return "/assets/icons/stick-figure-icon.png";
+    if (this.#isSelected("/art")) return "/assets/icons/art-icon.png";
+    if (this.#isSelected("/music")) return "/assets/icons/music-icon.png";
     return "/assets/icons/sheet.png";
   }
 
@@ -260,10 +260,10 @@ customElements.define("site-footer", class SiteFooter extends HTMLElement {
             <h3>Quick Links</h3>
             <nav class="footer-nav">
               <a href="/">Home</a>
-              <a href="/stories/">Stories</a>
-              <a href="/about/">About</a>
-              <a href="/art/">Art</a>
-              <a href="/music/">Music</a>
+              <a href="/stories">Stories</a>
+              <a href="/about">About</a>
+              <a href="/art">Art</a>
+              <a href="/music">Music</a>
             </nav>
           </div>
 
