@@ -2,16 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0"
-        name="viewport">
-  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="color-scheme" content="only dark">
 
+  <!-- SEO -->
+  <title>The Fun of ASCII Art and Animations — Vault</title>
+  <meta name="description" content="Exploring ASCII art animations with Rust and ffmpeg — from image-to-ascii conversion to full frame-by-frame terminal animations.">
+  <meta name="author" content="Rahul Chakraborty">
+  <link rel="canonical" href="https://rahulc0dy.is-a.dev/stories/the-fun-of-ascii-art-and-animations/">
+  <link rel="icon" type="image/png" href="/assets/icons/alien-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Fun of ASCII Art and Animations — Vault">
+  <meta property="og:description" content="Exploring ASCII art animations with Rust and ffmpeg — from image-to-ascii conversion to full frame-by-frame terminal animations.">
+  <meta property="og:image" content="https://rahulc0dy.is-a.dev/stories/the-fun-of-ascii-art-and-animations/og-image.png">
+  <meta property="og:url" content="https://rahulc0dy.is-a.dev/stories/the-fun-of-ascii-art-and-animations/">
+  <meta property="og:site_name" content="Vault">
+  <meta property="article:published_time" content="2025-07-05">
+  <meta property="article:author" content="Rahul Chakraborty">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Fun of ASCII Art and Animations — Vault">
+  <meta name="twitter:description" content="Exploring ASCII art animations with Rust and ffmpeg — from image-to-ascii conversion to terminal animations.">
+  <meta name="twitter:image" content="https://rahulc0dy.is-a.dev/stories/the-fun-of-ascii-art-and-animations/og-image.png">
+
+  <!-- Styles & Scripts -->
   <link href="../../common.css" rel="stylesheet">
   <link href="../../lib/prism/prism.css" rel="stylesheet">
   <link href="../story-styles.css" rel="stylesheet">
-  <script src="../../common.js"></script>
-
-  <title>The fun of ASCII art and animations</title>
+  <script defer src="../../common.js"></script>
 </head>
 <body>
 <site-navbar></site-navbar>
@@ -275,11 +296,11 @@ struct Cli {
   <p>
     Here is a demo video of the animation.
   </p>
-  <video autoplay loop style="border-radius: 18px" width="500">
+  <video autoplay loop muted playsinline preload="metadata" loading="lazy" style="border-radius: 18px" width="500">
     <source src="demo-video.mp4" type="video/mp4">
   </video>
   <p>The ascii output wasn't as smooth, and also my video choice was not particularly good</p>
-  <video autoplay loop src="demo-output.mp4" style="border-radius: 18px" width="500"></video>
+  <video autoplay loop muted playsinline preload="metadata" loading="lazy" src="demo-output.mp4" style="border-radius: 18px" width="500"></video>
   <p>That's all in this story, see you in the next one.</p>
 </article>
 <site-footer></site-footer>

@@ -1,242 +1,316 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0"
-        name="viewport">
-  <meta content="ie=edge" http-equiv="X-UA-Compatible">
-  <link href="homepage.css" rel="stylesheet">
-  <script defer src="common.js"></script>
-  <title>Vault - rahulc0dy</title>
-</head>
-<body>
-<site-navbar></site-navbar>
-<main class="wrapper">
-  <section class="hero-section" id="hero-section">
-    <p class="hero-small-text">Hi, I am</p>
-    <h1 class="hero-name">Rahul Chakraborty</h1>
-  </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="color-scheme" content="only dark" />
 
-  <section class="section short-description" id="short-description">
-    <div class="circle-container">
-      <div class="inner-circle">
-        <p class="desc-text">I like 8 bit platformer games.</p>
-        <div class="center-image"></div>
+    <!-- SEO -->
+    <title>Vault — Rahul Chakraborty</title>
+    <meta
+      name="description"
+      content="Personal vault of Rahul Chakraborty — stories, projects, art, and side quests in game development, web dev, and creative coding."
+    />
+    <meta name="author" content="Rahul Chakraborty" />
+    <link rel="canonical" href="https://rahulc0dy.is-a.dev/" />
+    <link rel="icon" type="image/png" href="/assets/icons/alien-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Vault — Rahul Chakraborty" />
+    <meta
+      property="og:description"
+      content="Personal vault of Rahul Chakraborty — stories, projects, art, and side quests."
+    />
+    <meta property="og:image" content="https://rahulc0dy.is-a.dev/assets/images/og-image.png" />
+    <meta property="og:url" content="https://rahulc0dy.is-a.dev/" />
+    <meta property="og:site_name" content="Vault" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vault — Rahul Chakraborty" />
+    <meta
+      name="twitter:description"
+      content="Personal vault of Rahul Chakraborty — stories, projects, art, and side quests."
+    />
+    <meta name="twitter:image" content="https://rahulc0dy.is-a.dev/assets/images/og-image.png" />
+
+    <!-- Styles & Scripts -->
+    <link href="common.css" rel="stylesheet" />
+    <link href="homepage.css" rel="stylesheet" />
+    <script defer src="common.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Vault",
+        "url": "https://rahulc0dy.is-a.dev/",
+        "author": {
+          "@type": "Person",
+          "name": "Rahul Chakraborty",
+          "url": "https://rahulc0dy.is-a.dev/",
+          "sameAs": [
+            "https://github.com/rahulc0dy",
+            "https://www.linkedin.com/in/rahulc0dy/",
+            "https://portfolio-webapp.framer.ai"
+          ]
+        },
+        "description": "Personal vault of Rahul Chakraborty — stories, projects, art, and side quests in game development, web dev, and creative coding."
+      }
+    </script>
+  </head>
+  <body>
+    <site-navbar></site-navbar>
+    <main class="wrapper">
+      <section class="hero-section" id="hero-section">
+        <p class="hero-small-text">Hi, I am</p>
+        <h1 class="hero-name">Rahul Chakraborty</h1>
+        <p class="hero-tagline">Software Developer · Game Dev Enthusiast · CSE @ University of Calcutta</p>
+      </section>
+
+      <section class="section short-description" id="short-description">
+        <div class="circle-container">
+          <div class="inner-circle">
+            <p class="desc-text">I like 8 bit platformer games.</p>
+            <div class="center-image"></div>
+          </div>
+        </div>
+        <p class="desc">
+          Currently interning at Extended Dynamic Systems, building scalable Go microservices on AWS. I build things
+          with TypeScript, C++, Go, and React — from 3D simulations to full-stack apps.
+        </p>
+      </section>
+
+      <div class="showcase-sections-container">
+        <section class="showcase-section">
+          <img alt="icons" class="showcase-icon" src="assets/icons/stories-icon.png" />
+          <h2>Stories</h2>
+          <div class="stories-container" id="stories-container">
+            <ul class="stories-list">
+              <li>
+                <a href="/stories/testing-shaders-locally"
+                  >Testing shaders locally <span class="story-date">20 July 2025</span>
+                  <div class="tags" style="display: inline">
+                    <span title="cpp"></span>
+                    <span title="graphics"></span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="/stories/the-fun-of-ascii-art-and-animations"
+                  >The fun of ASCII art and animations<span class="story-date">5 July 2025</span>
+                  <div class="tags" style="display: inline">
+                    <span title="rust"></span>
+                    <span title="ffmpeg"></span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="/stories/going-back-to-the-roots"
+                  >Going back to the roots <span class="story-date">21 June 2025</span>
+                  <div class="tags" style="display: inline">
+                    <span title="html"></span>
+                    <span title="css"></span>
+                    <span title="js"></span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <p class="center-text"><a class="stories-link" href="/stories">View All Stories</a></p>
+        </section>
+
+        <section class="showcase-section row-span-2" id="projects">
+          <img alt="Projects icon" class="showcase-icon" src="assets/icons/potion-icon.png" />
+          <h2>Projects</h2>
+          <div class="projects-container" id="projects-container">
+            <ul class="feature-card-list">
+              <li>
+                <project-card
+                  project="avs-peg"
+                  href="https://avs-peg.vercel.app/"
+                  title="Autonomous Vehicle Simulation"
+                ></project-card>
+              </li>
+              <li>
+                <project-card project="cravyn-web-frontend" title="Cravyn — Food Delivery"></project-card>
+              </li>
+              <li>
+                <project-card project="pong-game-with-raylib"></project-card>
+              </li>
+            </ul>
+          </div>
+          <p class="center-text">
+            <a class="arts-link" href="https://github.com/rahulc0dy?tab=repositories">View All Projects</a>
+          </p>
+        </section>
+
+        <section class="showcase-section row-span-2">
+          <img alt="icons" class="showcase-icon" src="assets/icons/cube-icon.png" />
+          <h2>Art</h2>
+          <div class="arts-container" id="arts-container">
+            <ul class="arts-list">
+              <li>
+                <a href="art/shinmon-benimaru.jpg" referrerpolicy="no-referrer" target="_blank">
+                  <img
+                    alt="Shinmon Benimaru fan art"
+                    loading="lazy"
+                    decoding="async"
+                    src="art/webp/shinmon-benimaru.webp"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="art/bgs.jpg" referrerpolicy="no-referrer" target="_blank">
+                  <img alt="BGS character fan art" loading="lazy" decoding="async" src="art/webp/bgs.webp" />
+                </a>
+              </li>
+              <li>
+                <a href="art/demon-slayer.jpg" referrerpolicy="no-referrer" target="_blank">
+                  <img alt="Demon Slayer fan art" loading="lazy" decoding="async" src="art/webp/demon-slayer.webp" />
+                </a>
+              </li>
+              <li>
+                <a href="art/chainsaw-man.jpg" referrerpolicy="no-referrer" target="_blank">
+                  <img alt="Chainsaw Man fan art" loading="lazy" decoding="async" src="art/webp/chainsaw-man.webp" />
+                </a>
+              </li>
+              <li>
+                <a href="art/girl-with-glasses.jpg" referrerpolicy="no-referrer" target="_blank">
+                  <img
+                    alt="Girl with glasses illustration"
+                    loading="lazy"
+                    decoding="async"
+                    src="art/webp/girl-with-glasses.webp"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="art/zenin-toji-enters-domain.jpg" referrerpolicy="no-referrer" target="_blank">
+                  <img
+                    alt="Zenin Toji enters domain fan art"
+                    loading="lazy"
+                    decoding="async"
+                    src="art/webp/zenin-toji-enters-domain.webp"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="art/ryoumen-sukuna.jpg" referrerpolicy="no-referrer" target="_blank">
+                  <img
+                    alt="Ryoumen Sukuna fan art"
+                    loading="lazy"
+                    decoding="async"
+                    src="art/webp/ryoumen-sukuna.webp"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <p class="center-text"><a class="arts-link" href="/art">View All Art</a></p>
+
+          <div class="quests-section">
+            <img alt="icons" class="showcase-icon" src="assets/icons/stick-figure-icon.png" />
+            <h2>Side Quests</h2>
+            <ul class="side-quest-list">
+              <li><a href="https://github.com/rahulc0dy/side-quests/tree/main/image-to-ascii">Image to ASCII</a></li>
+              <li><a href="https://github.com/rahulc0dy/side-quests/tree/main/hilbert-curves">Hilbert curves</a></li>
+              <li><a href="https://github.com/rahulc0dy/side-quests/tree/main/cit-cat-coe">Cit Cat Coe</a></li>
+              <li>
+                <a href="https://github.com/rahulc0dy/side-quests/tree/main/ascii-animations">ASCII animations</a>
+              </li>
+              <li><a href="https://github.com/rahulc0dy/side-quests/tree/main/shader-tester">Shader tester</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="showcase-section">
+          <img alt="About icon" class="showcase-icon" src="assets/icons/me-icon.png" />
+          <h2>About Me</h2>
+          <div class="about-container" id="about-container">
+            <p><strong>B.Tech in Computer Science & Engineering</strong> at University of Calcutta (CGPA: 9.04/10.0)</p>
+            <p>
+              Currently an <strong>SDE Intern at Extended Dynamic Systems</strong>, working with Golang, AWS, Docker,
+              and gRPC.
+            </p>
+            <p>I build full-stack web apps, 3D simulations, game engines, and creative coding experiments.</p>
+            <p class="about-skills">
+              <span class="skill-chip">Go</span>
+              <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">React</span>
+              <span class="skill-chip">Docker</span>
+              <span class="skill-chip">AWS</span>
+              <span class="skill-chip">PostgreSQL</span>
+              <span class="skill-chip">Three.js</span>
+            </p>
+            <p>Want to know more? <a href="/about">About me →</a></p>
+          </div>
+        </section>
       </div>
-    </div>
-    <p class="desc">
-      I have recently ventured into game development mainly using C++. Let's see where I end up.
-    </p>
-  </section>
 
-  <div class="showcase-sections-container">
-    <section class="showcase-section">
-      <img alt="icons" class="showcase-icon"
-           src="assets/icons/stories-icon.png">
-      <h2>Stories</h2>
-      <div class="stories-container" id="stories-container">
-        <ul class="stories-list">
-          <li>
-            <a href="/stories/testing-shaders-locally">Testing shaders locally <span
-              class="story-date">20 July 2025</span>
-              <div class="tags" style="display: inline">
-                <span title="cpp"></span>
-                <span title="graphics"></span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="/stories/the-fun-of-ascii-art-and-animations">The fun of ASCII art and animations<span
-              class="story-date">5 July 2025</span>
-              <div class="tags" style="display: inline">
-                <span title="rust"></span>
-                <span title="ffmpeg"></span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="/stories/going-back-to-the-roots">Going back to the roots <span
-              class="story-date">21 June 2025</span>
-              <div class="tags" style="display: inline">
-                <span title="html"></span>
-                <span title="css"></span>
-                <span title="js"></span>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <p class="center-text"><a class="stories-link" href="/stories">View All Stories</a></p>
-    </section>
+      <section class="info-grid">
+        <div>
+          <img alt="Stories icon" src="assets/icons/stories-icon.png" />
+          <a href="/stories">Stories</a>
+        </div>
+        <div>
+          <img alt="Projects icon" src="assets/icons/potion-icon.png" />
+          <a href="/projects">Projects</a>
+        </div>
+        <div class="row-span-2">
+          <github-heatmap></github-heatmap>
+        </div>
+        <div><img alt="Art icon" src="assets/icons/art-icon.png" /> <a href="/art">My Art</a></div>
+        <div>
+          <now-playing></now-playing>
+        </div>
+        <div class="large-image row-span-2">
+          <img alt="Featured image" loading="lazy" decoding="async" src="assets/images/default-feature-image.png" />
+          <p>I am from Ituri</p>
+        </div>
+        <div><img alt="Music icon" src="assets/icons/music-icon.png" /> <a href="/music">Music</a></div>
+        <div class="">
+          <img alt="random" class="sprite" src="assets/images/running-sprite-sheet.png" style="scale: 2" />
+        </div>
+        <div class="large-image row-span-2">
+          <img alt="Featured image" loading="lazy" decoding="async" src="assets/images/default-feature-image.png" />
+          <p>Currently I am in Kolkata</p>
+        </div>
+        <div>
+          <img alt="linkedin" src="assets/icons/linkedin-icon.png" />
+          <a href="https://www.linkedin.com/in/rahulc0dy/">I am looking for work.</a>
+        </div>
+        <div class="counter">
+          <p id="counter-display">
+            <span class="1">1</span><span class="2">2</span><span class="3">4</span><span class="4">5</span>
+          </p>
+          <script>
+            const counterDisplay = document.getElementById("counter-display");
+            let lastTime = 0;
 
-    <section class="showcase-section row-span-2" id="projects">
-      <img alt="icons" class="showcase-icon"
-           src="assets/icons/potion-icon.png">
-      <h2>Projects</h2>
-      <div class="projects-container" id="projects-container">
-        <ul class="feature-card-list">
-          <li>
-            <project-card project="pong-game-with-raylib"></project-card>
-          </li>
-          <li>
-            <project-card project="cravyn-web-frontend"></project-card>
-          </li>
-          <li>
-            <project-card project="micro-auth"></project-card>
-          </li>
-        </ul>
-      </div>
-      <p class="center-text"><a class="arts-link" href="/projects">View All Projects</a></p>
-    </section>
+            function updateCounter(currentTime) {
+              if (currentTime - lastTime >= 80) {
+                const digits = Array.from({ length: 4 }, () => Math.floor(Math.random() * 10));
+                counterDisplay.innerHTML = digits.map((d, i) => `<span class="${i + 1}">${d}</span>`).join("");
+                lastTime = currentTime;
+              }
+              requestAnimationFrame(updateCounter);
+            }
 
-    <section class="showcase-section row-span-2">
-      <img alt="icons" class="showcase-icon"
-           src="assets/icons/cube-icon.png">
-      <h2>Art</h2>
-      <div class="arts-container" id="arts-container">
-        <ul class="arts-list">
-          <li>
-            <a href="art/shinmon-benimaru.jpg"
-               referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
-                   src="art/webp/shinmon-benimaru.webp">
-            </a>
-          </li>
-          <li>
-            <a href="art/bgs.jpg" referrerpolicy="no-referrer"
-               target="_blank">
-              <img alt="art piece" src="art/webp/bgs.webp">
-            </a>
-          </li>
-          <li>
-            <a href="art/demon-slayer.jpg"
-               referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
-                   src="art/webp/demon-slayer.webp">
-            </a>
-          </li>
-          <li>
-            <a href="art/chainsaw-man.jpg"
-               referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
-                   src="art/webp/chainsaw-man.webp">
-            </a>
-          </li>
-          <li>
-            <a href="art/girl-with-glasses.jpg"
-               referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
-                   src="art/webp/girl-with-glasses.webp">
-            </a>
-          </li>
-          <li>
-            <a href="art/zenin-toji-enters-domain.jpg"
-               referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
-                   src="art/webp/zenin-toji-enters-domain.webp">
-            </a>
-          </li>
-          <li>
-            <a href="art/ryoumen-sukuna.jpg"
-               referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
-                   src="art/webp/ryoumen-sukuna.webp">
-            </a>
-          </li>
-        </ul>
-      </div>
-      <p class="center-text"><a class="arts-link" href="/art">View All Art</a></p>
+            requestAnimationFrame(updateCounter);
+          </script>
+        </div>
+        <div><p>Right now I am reading nothing.</p></div>
+        <div>
+          <img alt="meh" src="assets/icons/stick-figure-icon.png" />
+          <a href="/quests">Quests</a>
+        </div>
+      </section>
+    </main>
 
-      <div class="quests-section">
-        <img alt="icons" class="showcase-icon"
-             src="assets/icons/stick-figure-icon.png">
-        <h2>Side Quests</h2>
-        <ul class="side-quest-list">
-          <li><a href="https://github.com/rahulc0dy/side-quests/tree/main/image-to-ascii">Image to ASCII</a></li>
-          <li><a href="https://github.com/rahulc0dy/side-quests/tree/main/hilbert-curves">Hilbert curves</a></li>
-          <li><a href="https://github.com/rahulc0dy/side-quests/tree/main/cit-cat-coe">Cit Cat Coe</a></li>
-          <li><a href="https://github.com/rahulc0dy/side-quests/tree/main/ascii-animations">ASCII animations</a></li>
-          <li><a href="https://github.com/rahulc0dy/side-quests/tree/main/shader-tester">Shader tester</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="showcase-section">
-      <img alt="icons" class="showcase-icon"
-           src="assets/icons/me-icon.png">
-      <h2>About Me</h2>
-      <div class="about-container" id="about-container">
-        <p>My name is Rahul Chakraborty</p>
-        <p>I am a student at University of Calcutta</p>
-        <p>Currently I am studying Computer Science and Engineering.</p>
-        <p>My interests are web development, IoT, home automation, software security, game development.</p>
-        <p>Want to know <a href="/about">about me?</a></p>
-      </div>
-    </section>
-  </div>
-
-  <section class="info-grid">
-    <div>
-      <img alt="stories" src="assets/icons/stories-icon.png">
-      <a href="/stories">Stories</a>
-    </div>
-    <div>
-      <img alt="stories" src="assets/icons/potion-icon.png">
-      <a href="/projects">Projects</a>
-    </div>
-    <div class="row-span-2">
-      <github-heatmap></github-heatmap>
-    </div>
-    <div><img alt="stories" src="assets/icons/art-icon.png">
-      <a href="/art">My Art</a></div>
-    <div>
-      <now-playing></now-playing>
-    </div>
-    <div class="large-image row-span-2">
-      <img alt="" src="assets/images/default-feature-image.png">
-      <p>I am from Ituri</p>
-    </div>
-    <div><img alt="stories" src="assets/icons/music-icon.png">
-      <a href="/music">Music</a></div>
-    <div class="">
-      <img alt="random" class="sprite" src="assets/images/running-sprite-sheet.png" style="scale: 2">
-    </div>
-    <div class="large-image row-span-2">
-      <img alt="" src="assets/images/default-feature-image.png">
-      <p>Currently I am in Kolkata</p>
-    </div>
-    <div>
-      <img alt="linkedin" src="assets/icons/linkedin-icon.png">
-      <a href="https://www.linkedin.com/in/rahulc0dy/">I am looking for work.</a>
-    </div>
-    <div class="counter">
-      <p id="counter-display">
-        <span class="1">1</span><span class="2">2</span><span class="3">4</span><span class="4">5</span>
-      </p>
-      <script>
-        const counterDisplay = document.getElementById("counter-display");
-        let lastTime = 0;
-
-        function updateCounter(currentTime) {
-          if (currentTime - lastTime >= 80) {
-            const digits = Array.from({ length: 4 }, () => Math.floor(Math.random() * 10));
-            counterDisplay.innerHTML = digits.map((d, i) => `<span class="${i + 1}">${d}</span>`).join("");
-            lastTime = currentTime;
-          }
-          requestAnimationFrame(updateCounter);
-        }
-
-        requestAnimationFrame(updateCounter);
-      </script>
-    </div>
-    <div><p>Right now I am reading nothing.</p></div>
-    <div>
-      <img alt="meh" src="assets/icons/stick-figure-icon.png">
-      <a href="/quests">Quests</a>
-    </div>
-  </section>
-</main>
-
-<site-footer></site-footer>
-</body>
+    <site-footer></site-footer>
+  </body>
 </html>

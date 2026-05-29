@@ -1,0 +1,290 @@
+@layer components {
+
+  .about-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* ── Header ── */
+  .about-header {
+    padding-block: 3em 2em;
+    border-bottom: 1px solid var(--overlay-2);
+    margin-bottom: 2em;
+  }
+
+  .about-header h1 {
+    font-family: "Basement Grotesque", Iosevka, "Space Mono", monospace;
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-transform: uppercase;
+    color: var(--text-1);
+    margin: 0;
+  }
+
+  .about-subtitle {
+    font-family: "Space Mono", Iosevka, monospace;
+    font-size: 1rem;
+    color: var(--text-3);
+    margin: 0.4em 0 1em 0;
+  }
+
+  .about-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .about-links a {
+    font-family: Iosevka, "Space Mono", monospace;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-2);
+    text-decoration: none;
+    padding: 0.3em 0.8em;
+    border: 1px solid var(--overlay-2);
+    border-radius: 0.4em;
+    transition: all 200ms ease;
+  }
+
+  .about-links a:hover {
+    color: var(--text-1);
+    border-color: var(--text-1);
+    background: rgba(15, 240, 222, 0.05);
+  }
+
+  /* ── Sections ── */
+  .about-section {
+    margin-bottom: 2.5em;
+  }
+
+  .about-section h2 {
+    font-family: Iosevka, "Space Mono", monospace;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--text-1);
+    margin: 0 0 0.8em 0;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid rgba(15, 240, 222, 0.15);
+  }
+
+  .about-section p {
+    font-family: "Space Mono", Iosevka, monospace;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-2);
+    margin: 0.5em 0;
+  }
+
+  .about-section strong {
+    color: var(--text-1);
+  }
+
+  /* ── Experience ── */
+  .experience-card {
+    background: var(--surface-1);
+    border: 1px solid var(--overlay-2);
+    border-radius: 0.8em;
+    padding: 1.2em;
+    margin-bottom: 1em;
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .exp-header h3 {
+    font-family: Iosevka, "Space Mono", monospace;
+    font-size: 1.1rem;
+    color: var(--text-1);
+    margin: 0;
+  }
+
+  .exp-date {
+    font-family: "Space Mono", monospace;
+    font-size: 0.8rem;
+    color: var(--text-3);
+  }
+
+  .exp-company {
+    font-family: "Space Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--text-3);
+    margin: 0.2em 0 0.8em 0;
+    font-style: italic;
+  }
+
+  .exp-details {
+    padding-left: 1.2em;
+    margin: 0.5em 0;
+  }
+
+  .exp-details li {
+    font-family: "Space Mono", monospace;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-2);
+    margin-bottom: 0.5em;
+  }
+
+  .exp-details li::marker {
+    content: "› ";
+    color: var(--text-1);
+  }
+
+  .exp-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.8em;
+  }
+
+  /* ── Education ── */
+  .education-card {
+    background: var(--surface-1);
+    border: 1px solid var(--overlay-2);
+    border-radius: 0.8em;
+    padding: 1em 1.2em;
+    margin-bottom: 0.8em;
+  }
+
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .edu-header h3 {
+    font-family: Iosevka, "Space Mono", monospace;
+    font-size: 1rem;
+    color: var(--text-1);
+    margin: 0;
+  }
+
+  .edu-date {
+    font-family: "Space Mono", monospace;
+    font-size: 0.8rem;
+    color: var(--text-3);
+  }
+
+  .edu-institution {
+    font-family: "Space Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--text-3);
+    margin: 0.2em 0;
+    font-style: italic;
+  }
+
+  .edu-detail {
+    font-family: "Space Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--text-2);
+    margin: 0.2em 0;
+  }
+
+  /* ── Skills ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2em;
+  }
+
+  .skill-category h4 {
+    font-family: Iosevka, "Space Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.5em 0;
+  }
+
+  .skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-chip {
+    display: inline-block;
+    font-family: Iosevka, "Space Mono", monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0.2em 0.6em;
+    border-radius: 0.3em;
+    background: rgba(15, 240, 222, 0.08);
+    border: 1px solid rgba(15, 240, 222, 0.2);
+    color: var(--text-1);
+    transition: all 200ms ease;
+  }
+
+  .skill-chip:hover {
+    background: rgba(15, 240, 222, 0.15);
+    border-color: rgba(15, 240, 222, 0.4);
+  }
+
+  /* ── Achievements ── */
+  .achievements-list {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .achievements-list li {
+    font-family: "Space Mono", monospace;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-2);
+    padding: 0.6em 0;
+    border-bottom: 1px solid var(--overlay-2);
+  }
+
+  .achievements-list li:last-child {
+    border-bottom: none;
+  }
+
+  .achievements-list li::before {
+    content: "★ ";
+    color: var(--text-1);
+  }
+
+  /* ── Connect ── */
+  .connect-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.8rem;
+    margin-top: 1em;
+  }
+
+  .connect-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1em;
+    border: 1px solid var(--overlay-2);
+    border-radius: 0.8em;
+    background: var(--surface-1);
+    text-decoration: none;
+    color: var(--text-2);
+    font-family: Iosevka, "Space Mono", monospace;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 200ms ease;
+  }
+
+  .connect-card:hover {
+    color: var(--text-1);
+    border-color: var(--text-1);
+    background: rgba(15, 240, 222, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .connect-icon {
+    font-size: 1.5em;
+  }
+}

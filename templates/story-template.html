@@ -2,22 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0"
-        name="viewport">
-  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="color-scheme" content="only dark">
 
+  <!-- SEO — Replace {{PLACEHOLDERS}} with your story details -->
+  <title>{{TITLE}} — Vault</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="author" content="Rahul Chakraborty">
+  <link rel="canonical" href="https://rahulc0dy.is-a.dev/stories/{{SLUG}}/">
+  <link rel="icon" type="image/png" href="/assets/icons/alien-icon.png">
+
+  <!-- Open Graph — For rich previews on Facebook, Discord, LinkedIn, etc. -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{TITLE}} — Vault">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:image" content="https://rahulc0dy.is-a.dev/stories/{{SLUG}}/og-image.png">
+  <meta property="og:url" content="https://rahulc0dy.is-a.dev/stories/{{SLUG}}/">
+  <meta property="og:site_name" content="Vault">
+  <meta property="article:published_time" content="{{YYYY-MM-DD}}">
+  <meta property="article:author" content="Rahul Chakraborty">
+
+  <!-- Twitter Card — For rich previews on Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}} — Vault">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+  <meta name="twitter:image" content="https://rahulc0dy.is-a.dev/stories/{{SLUG}}/og-image.png">
+
+  <!-- Styles & Scripts -->
   <link href="../../common.css" rel="stylesheet">
   <link href="../story-styles.css" rel="stylesheet">
-  <script src="../../common.js"></script>
-
-  <title>Title</title>
+  <script defer src="../../common.js"></script>
 </head>
 <body>
 <site-navbar></site-navbar>
 <header class="blog-header">
-  <h1>Title</h1>
+  <h1>{{TITLE}}</h1>
   <p>
-    <span class="blog-date">Date (DD Month YYYY)</span> . <span class="read-time">Xmin read</span>
+    <span class="blog-date">{{DD Month YYYY}}</span> . <span class="read-time">{{X}}min read</span>
   </p>
   <div class="tags">
     <span title="html"></span>
@@ -28,59 +49,18 @@
 <article class="blog-content">
   <h5>Header</h5>
   <p>
-    For the past 5 years, I have been working with next js, and honestly I love it and it's been great. Whenever I
-    wanted to spin up a new web project, I couldn't think of anything except <a href="http://nextjs.org/">Next.js</a>.
-  </p>
-  <p>
-    But since moving up to semester 6 of my CSE degree, I was forced to go back to writing website with
-    vanilla web technologies, and heck even php which I honestly don't like.
-  </p>
-  <p>
-    But working with plain js and css, it's rewired my brain into thinking natively what the browser does. I did make a
-    portfolio website in framer, but I wanted to have a blog or more of a showcase of my work and maybe remaking my
-    portfolio. Recently I saw the news about gsap going free for everyone after the webflow acquisition.
-  </p>
-  <h5>Header</h5>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur dolore, eius esse eum excepturi
-    illum incidunt iure iusto laborum libero, minima minus omnis perspiciatis placeat qui recusandae tenetur ullam, unde
-    voluptate! A assumenda debitis dolore dolores eligendi, enim exercitationem fuga laboriosam natus nesciunt nobis
-    nostrum optio quisquam, ratione, reiciendis.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias consequatur deleniti dolor dolores ea eos
-    fugit iusto modi, mollitia officiis perferendis porro provident quidem similique temporibus velit, voluptas? At
-    corporis distinctio ducimus harum iste libero molestias neque non nostrum pariatur, porro possimus quidem quisquam
-    quo saepe unde voluptatem voluptatum?
-  </p>
-  <h5>Header</h5>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deserunt error inventore laborum temporibus,
-    voluptas? Consectetur dolor, dolorem ducimus exercitationem harum impedit incidunt magnam modi nam necessitatibus
-    nesciunt quas quidem sit velit vero. Dolore fuga laboriosam minus neque perspiciatis praesentium ratione, sapiente
-    tempora vel? Consequuntur eveniet laudantium officiis voluptate voluptatem.
-  </p>
-
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aut delectus labore maxime nostrum, numquam porro quod
-    repellat ullam veritatis? Asperiores cumque cupiditate natus odio quam? Blanditiis, commodi cumque doloribus ducimus
-    ea, enim error harum magnam quod reiciendis rerum sed soluta tempora totam ullam voluptatem voluptatum. Atque eaque,
-    enim! Temporibus.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut doloribus harum inventore nemo, sed
-    voluptates! A accusamus accusantium aliquam aperiam asperiores autem delectus dolore eligendi error expedita facilis
-    harum impedit iure mollitia non pariatur quia rem rerum sapiente sequi tempora temporibus, totam voluptatibus!
-    Commodi ipsum possimus quos reprehenderit ut!
-  </p>
-  <h5>Header</h5>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, asperiores at blanditiis culpa distinctio, eius eos
-    fugit iste labore libero mollitia nemo non obcaecati officia, omnis perferendis quia quibusdam quidem quod
-    reprehenderit similique tempora tenetur velit voluptas voluptatibus. Adipisci beatae fugiat impedit ipsum nam
-    nesciunt odio perferendis sunt temporibus totam.
+    Your content here.
   </p>
 </article>
 <site-footer></site-footer>
+
+<!--
+  CHECKLIST FOR NEW STORIES:
+  1. Replace all {{PLACEHOLDERS}} in the <head> with your story details
+  2. Generate an og-image.png using tools/og-image-generator.html
+  3. Place the og-image.png in this story's folder
+  4. Add the story to stories/index.html and index.html
+  5. Add the story URL to sitemap.xml
+-->
 </body>
 </html>
