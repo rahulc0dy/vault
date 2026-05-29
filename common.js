@@ -1,8 +1,8 @@
 const preloadLink = document.createElement("link");
 preloadLink.rel = "preload";
-preloadLink.href = "/assets/fonts/Iosevka-Bold.ttf";
+preloadLink.href = "/assets/fonts/Iosevka-Bold.woff2";
 preloadLink.as = "font";
-preloadLink.type = "font/ttf";
+preloadLink.type = "font/woff2";
 preloadLink.crossOrigin = "anonymous";
 document.head.appendChild(preloadLink);
 
@@ -16,36 +16,6 @@ const webmentionLink = document.createElement("link");
 webmentionLink.rel = "webmention";
 webmentionLink.href = "https://portfolio-webapp.framer.ai";
 document.head.appendChild(webmentionLink);
-
-const metaColorScheme = document.createElement("meta");
-metaColorScheme.name = "color-scheme";
-metaColorScheme.content = "only dark";
-document.head.appendChild(metaColorScheme);
-
-const metaOgTitle = document.createElement("meta");
-metaOgTitle.name = "og:title";
-metaOgTitle.content = "Vault";
-document.head.appendChild(metaOgTitle);
-
-const metaOgDescription = document.createElement("meta");
-metaOgDescription.name = "og:description";
-metaOgDescription.content = "Personal vault of Rahul Chakraborty.";
-document.head.appendChild(metaOgDescription);
-
-const metaOgShortDescription = document.createElement("meta");
-metaOgShortDescription.name = "og:short-description";
-metaOgShortDescription.content = "Personal vault of Rahul Chakraborty.";
-document.head.appendChild(metaOgShortDescription);
-
-const metaOgImage = document.createElement("meta");
-metaOgImage.name = "og:image";
-metaOgImage.content = "https://github.com/rahulc0dy/vault/blob/main/assets/images/og-image.png";
-document.head.appendChild(metaOgImage);
-
-const commonStyles = document.createElement("link");
-commonStyles.rel = "stylesheet";
-commonStyles.href = "common.css";
-document.head.appendChild(commonStyles);
 
 const html = (() => {
   const staging = document.createElement("div");

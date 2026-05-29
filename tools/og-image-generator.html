@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>OG Image Generator — Vault Tools</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Courier New', Consolas, monospace;
+      background: #040d0e;
+      color: #b0deda;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    h1 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: #81afac;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input, textarea {
+      font-family: 'Courier New', Consolas, monospace;
+      background: #0b2021;
+      border: 1px solid rgba(185, 221, 218, 0.2);
+      color: #e5ecea;
+      padding: 0.6rem 0.75rem;
+      border-radius: 0.4rem;
+      font-size: 0.9rem;
+      width: 100%;
+      outline: none;
+    }
+
+    input:focus { border-color: #b0deda; }
+
+    .tag-input-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .tag-input-group input { flex: 1; min-width: 120px; }
+
+    .tag-chip {
+      display: inline-block;
+      background: rgba(185, 221, 218, 0.15);
+      color: #b0deda;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid rgba(185, 221, 218, 0.3);
+      transition: opacity 0.2s;
+    }
+
+    .tag-chip:hover { opacity: 0.5; text-decoration: line-through; }
+
+    .actions { display: flex; gap: 1rem; margin-top: 0.5rem; }
+
+    button {
+      font-family: 'Courier New', Consolas, monospace;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 0.7rem 1.5rem;
+      border: 1px solid rgba(185, 221, 218, 0.3);
+      background: rgba(185, 221, 218, 0.1);
+      color: #b0deda;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.85rem;
+    }
+
+    button:hover { background: rgba(185, 221, 218, 0.2); border-color: #b0deda; }
+    button.primary { background: #b0deda; color: #040d0e; border-color: #b0deda; }
+    button.primary:hover { background: #d0eeea; }
+
+    .preview-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    canvas {
+      border-radius: 0.5rem;
+      border: 1px solid rgba(185, 221, 218, 0.2);
+      max-width: 100%;
+      height: auto;
+    }
+
+    .hint { font-size: 0.75rem; color: #81afac; opacity: 0.7; text-align: center; max-width: 500px; }
+    .field { display: flex; flex-direction: column; gap: 0.25rem; }
+    .row { display: flex; gap: 1rem; }
+    .row .field { flex: 1; }
+  </style>
+</head>
+<body>
+  <h1>🖼️ OG Image Generator</h1>
+  <p class="hint">Generate 1200×630 social media preview images for your stories. Tags: press Enter to add, click to remove.</p>
+
+  <div class="controls">
+    <div class="field">
+      <label for="title">Story Title</label>
+      <input id="title" type="text" placeholder="Going Back To The Roots">
+    </div>
+
+    <div class="field">
+      <label for="subtitle">Description (optional)</label>
+      <input id="subtitle" type="text" placeholder="A short description of the story">
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="date">Date</label>
+        <input id="date" type="text" placeholder="21 June 2025">
+      </div>
+      <div class="field">
+        <label for="read-time">Read Time</label>
+        <input id="read-time" type="text" placeholder="4min read">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Tags (press Enter to add)</label>
+      <div class="tag-input-group">
+        <span id="tags-display"></span>
+        <input id="tag-input" type="text" placeholder="html, css, rust...">
+      </div>
+    </div>
+
+    <div class="actions">
+      <button onclick="renderPreview()">Preview</button>
+      <button class="primary" onclick="downloadImage()">⬇ Download PNG</button>
+    </div>
+  </div>
+
+  <div class="preview-section">
+    <label>Live Preview (1200×630)</label>
+    <canvas id="og-canvas" width="1200" height="630"></canvas>
+  </div>
+
+<script>
+  const canvas = document.getElementById("og-canvas");
+  const ctx = canvas.getContext("2d");
+  let tags = [];
+
+  // ── Tag management ──
+  const tagInput = document.getElementById("tag-input");
+  const tagsDisplay = document.getElementById("tags-display");
+
+  tagInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && tagInput.value.trim()) {
+      e.preventDefault();
+      tags.push(tagInput.value.trim().toLowerCase());
+      tagInput.value = "";
+      renderTags();
+      renderPreview();
+    }
+  });
+
+  function renderTags() {
+    tagsDisplay.innerHTML = tags
+      .map((tag, i) => `<span class="tag-chip" onclick="removeTag(${i})">${tag}</span>`)
+      .join(" ");
+  }
+
+  function removeTag(i) {
+    tags.splice(i, 1);
+    renderTags();
+    renderPreview();
+  }
+
+  // ── Tag colors (matching site's common.css tag system) ──
+  const TAG_COLORS = {
+    html: "#fcbe03", css: "#9B59B6", js: "#f7df1e",
+    rust: "#f46623", c: "#e2bb9e", cpp: "#659AD2",
+    android: "#3ddc84", games: "#00ff00", art: "#ff88bb",
+    algo: "#00ffff", keyboard: "#77ccff", ffmpeg: "#388E3C",
+    graphics: "#E91E63",
+  };
+
+  function getTagColor(tag) {
+    return TAG_COLORS[tag.toLowerCase()] || "#b0deda";
+  }
+
+  // ── Canvas fonts ──
+  // Use system monospace stack — custom fonts only work when served via HTTP
+  const FONT_BOLD = "bold 'Courier New', Consolas, 'Liberation Mono', monospace";
+  const FONT_NORMAL = "'Courier New', Consolas, 'Liberation Mono', monospace";
+
+  function setFont(style, size) {
+    ctx.font = `${style} ${size}px ${FONT_NORMAL.replace(/'/g, "'")}`;
+  }
+
+  function setBoldFont(size, italic = false) {
+    ctx.font = `bold ${italic ? "italic " : ""}${size}px 'Courier New', Consolas, monospace`;
+  }
+
+  function setNormalFont(size) {
+    ctx.font = `${size}px 'Courier New', Consolas, monospace`;
+  }
+
+  // ── Rounded rectangle helper ──
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+  }
+
+  // ── Main render ──
+  function renderPreview() {
+    const title = document.getElementById("title").value || "Story Title";
+    const date = document.getElementById("date").value || "";
+    const readTime = document.getElementById("read-time").value || "";
+    const subtitle = document.getElementById("subtitle").value || "";
+
+    const W = 1200, H = 630;
+    ctx.clearRect(0, 0, W, H);
+
+    // ── Background ──
+    const bg = ctx.createLinearGradient(0, 0, W, H);
+    bg.addColorStop(0, "#040d0e");
+    bg.addColorStop(0.5, "#061515");
+    bg.addColorStop(1, "#0a1e1f");
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // ── Subtle grid ──
+    ctx.strokeStyle = "rgba(185, 221, 218, 0.035)";
+    ctx.lineWidth = 1;
+    for (let x = 0; x < W; x += 40) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (let y = 0; y < H; y += 40) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+
+    // ── Corner decorations ──
+    ctx.strokeStyle = "rgba(185, 221, 218, 0.12)";
+    ctx.lineWidth = 2;
+    const c = 45, ci = 30;
+    // top-left
+    ctx.beginPath(); ctx.moveTo(c, c + ci); ctx.lineTo(c, c); ctx.lineTo(c + ci, c); ctx.stroke();
+    // top-right
+    ctx.beginPath(); ctx.moveTo(W - c - ci, c); ctx.lineTo(W - c, c); ctx.lineTo(W - c, c + ci); ctx.stroke();
+    // bottom-left
+    ctx.beginPath(); ctx.moveTo(c, H - c - ci); ctx.lineTo(c, H - c); ctx.lineTo(c + ci, H - c); ctx.stroke();
+    // bottom-right
+    ctx.beginPath(); ctx.moveTo(W - c - ci, H - c); ctx.lineTo(W - c, H - c); ctx.lineTo(W - c, H - c - ci); ctx.stroke();
+
+    // ── Glow behind title area ──
+    const glow = ctx.createRadialGradient(W * 0.35, H * 0.42, 0, W * 0.35, H * 0.42, 350);
+    glow.addColorStop(0, "rgba(15, 240, 222, 0.05)");
+    glow.addColorStop(1, "rgba(15, 240, 222, 0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, W, H);
+
+    // ── VAULT branding ──
+    setBoldFont(20);
+    ctx.fillStyle = "rgba(185, 221, 218, 0.45)";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "middle";
+    ctx.fillText("VAULT", 75, 75);
+
+    // ── Site URL ──
+    setNormalFont(14);
+    ctx.fillStyle = "rgba(185, 221, 218, 0.3)";
+    ctx.textAlign = "right";
+    ctx.fillText("rahulc0dy.is-a.dev", W - 75, 75);
+
+    // ── Header divider ──
+    ctx.strokeStyle = "rgba(185, 221, 218, 0.08)";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(75, 100); ctx.lineTo(W - 75, 100); ctx.stroke();
+
+    // ── Title (word-wrap) ──
+    setBoldFont(50, true);
+    ctx.fillStyle = "#b0deda";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+
+    const maxLineWidth = W - 180;
+    const words = title.split(" ");
+    const lines = [];
+    let currentLine = "";
+
+    for (const word of words) {
+      const testLine = currentLine ? currentLine + " " + word : word;
+      if (ctx.measureText(testLine).width > maxLineWidth && currentLine) {
+        lines.push(currentLine);
+        currentLine = word;
+      } else {
+        currentLine = testLine;
+      }
+    }
+    if (currentLine) lines.push(currentLine);
+
+    const lineHeight = 64;
+    const totalTitleH = lines.length * lineHeight;
+    // Center title vertically in the available space (between header and footer)
+    const availTop = 120;
+    const availBottom = H - 120;
+    const contentHeight = totalTitleH + (subtitle ? 40 : 0);
+    const titleY = Math.max(availTop + 20, (availTop + availBottom - contentHeight) / 2);
+
+    lines.forEach((line, i) => {
+      ctx.fillText(line, 80, titleY + i * lineHeight);
+    });
+
+    // ── Subtitle ──
+    if (subtitle) {
+      setNormalFont(17);
+      ctx.fillStyle = "rgba(185, 221, 218, 0.45)";
+      ctx.fillText(subtitle, 82, titleY + lines.length * lineHeight + 16);
+    }
+
+    // ── Footer divider ──
+    const footerDivY = H - 100;
+    ctx.strokeStyle = "rgba(185, 221, 218, 0.08)";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(75, footerDivY); ctx.lineTo(W - 75, footerDivY); ctx.stroke();
+
+    // ── Date & read time ──
+    const bottomTextY = H - 68;
+    setNormalFont(15);
+    ctx.fillStyle = "rgba(185, 221, 218, 0.45)";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "middle";
+    const meta = [date, readTime].filter(Boolean).join("  ·  ");
+    ctx.fillText(meta, 80, bottomTextY);
+
+    // ── Author ──
+    setNormalFont(13);
+    ctx.fillStyle = "rgba(185, 221, 218, 0.25)";
+    ctx.textAlign = "left";
+    ctx.fillText("by Rahul Chakraborty", 80, bottomTextY + 24);
+
+    // ── Tags (bottom-right) ──
+    if (tags.length > 0) {
+      let tagX = W - 80;
+      setBoldFont(14);
+      ctx.textBaseline = "middle";
+
+      for (let i = tags.length - 1; i >= 0; i--) {
+        const tag = tags[i];
+        const color = getTagColor(tag);
+        const textW = ctx.measureText(tag).width;
+        const chipW = textW + 20;
+        const chipH = 28;
+        const chipX = tagX - chipW;
+        const chipY = bottomTextY - chipH / 2;
+
+        // Parse hex color for rgba
+        const hex = color.replace("#", "");
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+
+        // Chip background
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.12)`;
+        roundRect(chipX, chipY, chipW, chipH, 5);
+        ctx.fill();
+
+        // Chip border
+        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.35)`;
+        ctx.lineWidth = 1;
+        roundRect(chipX, chipY, chipW, chipH, 5);
+        ctx.stroke();
+
+        // Chip text
+        ctx.fillStyle = color;
+        ctx.textAlign = "center";
+        ctx.fillText(tag, chipX + chipW / 2, bottomTextY);
+
+        tagX = chipX - 10;
+      }
+    }
+  }
+
+  // ── Download ──
+  function downloadImage() {
+    renderPreview();
+    const link = document.createElement("a");
+    link.download = "og-image.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  }
+
+  // ── Auto-preview on input ──
+  document.querySelectorAll("input").forEach(el => {
+    el.addEventListener("input", renderPreview);
+  });
+
+  // Initial render
+  renderPreview();
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rahulc0dy.is-a.dev/sitemap.xml

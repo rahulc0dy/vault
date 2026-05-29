@@ -2,12 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0"
-        name="viewport">
-  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="color-scheme" content="only dark">
+
+  <!-- SEO -->
+  <title>Vault — Rahul Chakraborty</title>
+  <meta name="description" content="Personal vault of Rahul Chakraborty — stories, projects, art, and side quests in game development, web dev, and creative coding.">
+  <meta name="author" content="Rahul Chakraborty">
+  <link rel="canonical" href="https://rahulc0dy.is-a.dev/">
+  <link rel="icon" type="image/png" href="/assets/icons/alien-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vault — Rahul Chakraborty">
+  <meta property="og:description" content="Personal vault of Rahul Chakraborty — stories, projects, art, and side quests.">
+  <meta property="og:image" content="https://rahulc0dy.is-a.dev/assets/images/og-image.png">
+  <meta property="og:url" content="https://rahulc0dy.is-a.dev/">
+  <meta property="og:site_name" content="Vault">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vault — Rahul Chakraborty">
+  <meta name="twitter:description" content="Personal vault of Rahul Chakraborty — stories, projects, art, and side quests.">
+  <meta name="twitter:image" content="https://rahulc0dy.is-a.dev/assets/images/og-image.png">
+
+  <!-- Styles & Scripts -->
+  <link href="common.css" rel="stylesheet">
   <link href="homepage.css" rel="stylesheet">
   <script defer src="common.js"></script>
-  <title>Vault - rahulc0dy</title>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Vault",
+    "url": "https://rahulc0dy.is-a.dev/",
+    "author": {
+      "@type": "Person",
+      "name": "Rahul Chakraborty",
+      "url": "https://rahulc0dy.is-a.dev/",
+      "sameAs": [
+        "https://github.com/rahulc0dy",
+        "https://www.linkedin.com/in/rahulc0dy/",
+        "https://portfolio-webapp.framer.ai"
+      ]
+    },
+    "description": "Personal vault of Rahul Chakraborty — stories, projects, art, and side quests in game development, web dev, and creative coding."
+  }
+  </script>
 </head>
 <body>
 <site-navbar></site-navbar>
@@ -98,48 +141,49 @@
           <li>
             <a href="art/shinmon-benimaru.jpg"
                referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
+              <img alt="Shinmon Benimaru fan art" loading="lazy" decoding="async"
                    src="art/webp/shinmon-benimaru.webp">
             </a>
           </li>
           <li>
             <a href="art/bgs.jpg" referrerpolicy="no-referrer"
                target="_blank">
-              <img alt="art piece" src="art/webp/bgs.webp">
+              <img alt="BGS character fan art" loading="lazy" decoding="async"
+                   src="art/webp/bgs.webp">
             </a>
           </li>
           <li>
             <a href="art/demon-slayer.jpg"
                referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
+              <img alt="Demon Slayer fan art" loading="lazy" decoding="async"
                    src="art/webp/demon-slayer.webp">
             </a>
           </li>
           <li>
             <a href="art/chainsaw-man.jpg"
                referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
+              <img alt="Chainsaw Man fan art" loading="lazy" decoding="async"
                    src="art/webp/chainsaw-man.webp">
             </a>
           </li>
           <li>
             <a href="art/girl-with-glasses.jpg"
                referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
+              <img alt="Girl with glasses illustration" loading="lazy" decoding="async"
                    src="art/webp/girl-with-glasses.webp">
             </a>
           </li>
           <li>
             <a href="art/zenin-toji-enters-domain.jpg"
                referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
+              <img alt="Zenin Toji enters domain fan art" loading="lazy" decoding="async"
                    src="art/webp/zenin-toji-enters-domain.webp">
             </a>
           </li>
           <li>
             <a href="art/ryoumen-sukuna.jpg"
                referrerpolicy="no-referrer" target="_blank">
-              <img alt="art piece"
+              <img alt="Ryoumen Sukuna fan art" loading="lazy" decoding="async"
                    src="art/webp/ryoumen-sukuna.webp">
             </a>
           </li>
@@ -177,32 +221,32 @@
 
   <section class="info-grid">
     <div>
-      <img alt="stories" src="assets/icons/stories-icon.png">
+      <img alt="Stories icon" src="assets/icons/stories-icon.png">
       <a href="/stories">Stories</a>
     </div>
     <div>
-      <img alt="stories" src="assets/icons/potion-icon.png">
+      <img alt="Projects icon" src="assets/icons/potion-icon.png">
       <a href="/projects">Projects</a>
     </div>
     <div class="row-span-2">
       <github-heatmap></github-heatmap>
     </div>
-    <div><img alt="stories" src="assets/icons/art-icon.png">
+    <div><img alt="Art icon" src="assets/icons/art-icon.png">
       <a href="/art">My Art</a></div>
     <div>
       <now-playing></now-playing>
     </div>
     <div class="large-image row-span-2">
-      <img alt="" src="assets/images/default-feature-image.png">
+      <img alt="Featured image" loading="lazy" decoding="async" src="assets/images/default-feature-image.png">
       <p>I am from Ituri</p>
     </div>
-    <div><img alt="stories" src="assets/icons/music-icon.png">
+    <div><img alt="Music icon" src="assets/icons/music-icon.png">
       <a href="/music">Music</a></div>
     <div class="">
       <img alt="random" class="sprite" src="assets/images/running-sprite-sheet.png" style="scale: 2">
     </div>
     <div class="large-image row-span-2">
-      <img alt="" src="assets/images/default-feature-image.png">
+      <img alt="Featured image" loading="lazy" decoding="async" src="assets/images/default-feature-image.png">
       <p>Currently I am in Kolkata</p>
     </div>
     <div>
