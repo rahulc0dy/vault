@@ -185,19 +185,20 @@
   .skill-chip {
     display: inline-block;
     font-family: Iosevka, "Space Mono", monospace;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: bold;
-    padding: 0.2em 0.6em;
-    border-radius: 0.3em;
-    background: rgba(15, 240, 222, 0.08);
-    border: 1px solid rgba(15, 240, 222, 0.2);
-    color: var(--text-1);
-    transition: all 200ms ease;
+    padding: 0.25em 0.65em;
+    border-radius: 0.25em;
+    background: rgba(185, 221, 218, 0.07);
+    border: none;
+    color: var(--text-3);
+    letter-spacing: 0.02em;
+    transition: color 200ms ease, background 200ms ease;
   }
 
   .skill-chip:hover {
-    background: rgba(15, 240, 222, 0.15);
-    border-color: rgba(15, 240, 222, 0.4);
+    background: rgba(185, 221, 218, 0.13);
+    color: var(--text-1);
   }
 
   .feature-card-list {
