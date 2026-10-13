@@ -9,7 +9,7 @@
     <title>About — Rahul Chakraborty</title>
     <meta
       name="description"
-      content="Rahul Chakraborty — Software Developer, B.Tech CSE student at University of Calcutta, SDE Intern at Extended Dynamic Systems. Skills in Go, TypeScript, C++, React, AWS."
+      content="Rahul Chakraborty — M.Tech. Computer Science and Engineering student at IIT Indore and software developer. Interested in distributed systems, databases, and full-stack development."
     />
     <meta name="author" content="Rahul Chakraborty" />
     <link rel="canonical" href="https://rahulc0dy.is-a.dev/about/" />
@@ -20,7 +20,7 @@
     <meta property="og:title" content="About — Rahul Chakraborty" />
     <meta
       property="og:description"
-      content="Software Developer, B.Tech CSE @ University of Calcutta, SDE Intern at Extended Dynamic Systems."
+      content="M.Tech. CSE @ IIT Indore and software developer interested in distributed systems, databases, and full-stack development."
     />
     <meta property="og:image" content="https://rahulc0dy.is-a.dev/assets/images/og-image.png" />
     <meta property="og:url" content="https://rahulc0dy.is-a.dev/about/" />
@@ -31,7 +31,7 @@
     <meta name="twitter:title" content="About — Rahul Chakraborty" />
     <meta
       name="twitter:description"
-      content="Software Developer, B.Tech CSE @ University of Calcutta, SDE Intern at Extended Dynamic Systems."
+      content="M.Tech. CSE @ IIT Indore and software developer interested in distributed systems, databases, and full-stack development."
     />
     <meta name="twitter:image" content="https://rahulc0dy.is-a.dev/assets/images/og-image.png" />
 
@@ -47,7 +47,7 @@
       <!-- Header -->
       <header class="about-header">
         <h1>Rahul Chakraborty</h1>
-        <p class="about-subtitle">Software Developer · Kolkata, India</p>
+        <p class="about-subtitle">M.Tech. CSE @ IIT Indore · Software Developer</p>
         <div class="about-header-actions">
           <div class="about-links">
             <a href="https://github.com/rahulc0dy" target="_blank" rel="noopener">GitHub</a>
@@ -80,13 +80,13 @@
       <section class="about-section" id="bio">
         <h2>Who am I?</h2>
         <p>
-          I'm a B.Tech Computer Science & Engineering student at the University of Calcutta with a CGPA of 9.04/10.0. I
-          enjoy building things that live at the intersection of systems programming and creative coding — from 3D
-          browser simulations to terminal-based ASCII art generators.
+          I'm a Computer Science and Engineering student pursuing my M.Tech. at the Indian Institute of Technology
+          Indore. I enjoy working on systems programming, distributed services, database internals, and full-stack
+          applications.
         </p>
         <p>
-          When I'm not writing code, I'm drawing fan art, playing 8-bit platformers, or tinkering with hardware and IoT
-          projects.
+          My interests span the full stack — from implementing SQL layers and storage-engine components to designing
+          production APIs, event-driven workflows, and responsive web applications.
         </p>
       </section>
 
@@ -96,21 +96,21 @@
         <div class="experience-card">
           <div class="exp-header">
             <h3>Software Developer Intern</h3>
-            <span class="exp-date">Nov 2025 – Present</span>
+            <span class="exp-date">Nov 2025 – May 2026</span>
           </div>
           <p class="exp-company">Extended Dynamic Systems · Kolkata, India</p>
           <ul class="exp-details">
             <li>
-              Designed and deployed scalable Golang-based microservices on AWS, strictly adhering to SOLID principles to
-              enhance codebase maintainability and test coverage.
+              Engineered a distributed microservices architecture spanning 4+ Dockerized Go services and implemented
+              fine-grained RBAC across 6 user and administrative roles.
             </li>
             <li>
-              Architected high-performance REST and gRPC API endpoints, optimizing database query execution to
-              consistently achieve sub-200ms p99 latency under concurrent load.
+              Developed 30+ REST APIs and 15+ gRPC services integrating AWS Cognito passwordless authentication, S3
+              object storage, and OpenTelemetry distributed tracing.
             </li>
             <li>
-              Established automated CI/CD pipelines using GitHub Actions, reducing manual deployment times by 80% and
-              ensuring reliable code delivery.
+              Architected asynchronous event-driven workflows using AWS SQS, provisioned infrastructure with Terraform,
+              and automated CI/CD pipelines using GitHub Actions.
             </li>
           </ul>
           <div class="exp-tech">
@@ -119,6 +119,48 @@
             <span class="skill-chip">AWS</span>
             <span class="skill-chip">gRPC</span>
             <span class="skill-chip">REST</span>
+            <span class="skill-chip">Terraform</span>
+            <span class="skill-chip">OpenTelemetry</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="about-section" id="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+          <div class="project-header">
+            <h3>PenguinDB</h3>
+            <span class="project-date">2025 – Present</span>
+          </div>
+          <p class="project-subtitle">Custom SQL Database · GitHub</p>
+          <ul class="project-details">
+            <li>Contributed to the SQL layer of a custom database supporting SQL queries over an underlying key-value storage engine.</li>
+            <li>Implemented the SQL lexer, parser, and AST nodes, establishing the foundation for query planning and execution.</li>
+            <li>Worked with database internals including WAL, SSTables, LSM Trees, manifests, Bloom filters, storage engine, catalog, and encoding.</li>
+          </ul>
+          <div class="project-tech">
+            <span class="skill-chip">C++</span>
+            <span class="skill-chip">SQL</span>
+            <span class="skill-chip">Database Systems</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <h3>Cravyn — Food Delivery App</h3>
+            <span class="project-date">Sep 2024 – Jan 2025</span>
+          </div>
+          <p class="project-subtitle">Full Stack Developer · Website</p>
+          <ul class="project-details">
+            <li>Built a monolithic backend REST API using Express.js and Bun to serve a responsive Next.js 15 frontend.</li>
+            <li>Designed and implemented a custom JWT-based authentication system using HttpOnly cookies for secure user sessions.</li>
+            <li>Designed a relational PostgreSQL schema for customers, restaurants, food items, carts, addresses, and order processing.</li>
+          </ul>
+          <div class="project-tech">
+            <span class="skill-chip">Express.js</span>
+            <span class="skill-chip">Bun</span>
+            <span class="skill-chip">Next.js</span>
+            <span class="skill-chip">PostgreSQL</span>
           </div>
         </div>
       </section>
@@ -128,19 +170,35 @@
         <h2>Education</h2>
         <div class="education-card">
           <div class="edu-header">
-            <h3>B.Tech in Computer Science & Engineering</h3>
-            <span class="edu-date">Nov 2022 – Present</span>
+            <h3>M.Tech. in Computer Science & Engineering</h3>
+            <span class="edu-date">2026 – Present</span>
           </div>
-          <p class="edu-institution">University of Calcutta · Kolkata, India</p>
-          <p class="edu-detail">CGPA: <strong>9.04/10.0</strong></p>
+          <p class="edu-institution">Indian Institute of Technology Indore</p>
+          <p class="edu-detail">Currently pursuing</p>
         </div>
         <div class="education-card">
           <div class="edu-header">
-            <h3>12th Standard</h3>
+            <h3>B.Tech. in Computer Science & Engineering</h3>
+            <span class="edu-date">2022 – 2026</span>
+          </div>
+          <p class="edu-institution">University of Calcutta</p>
+          <p class="edu-detail">CGPA: <strong>9.0/10.0</strong></p>
+        </div>
+        <div class="education-card">
+          <div class="edu-header">
+            <h3>Senior Secondary</h3>
             <span class="edu-date">2021</span>
           </div>
-          <p class="edu-institution">Kashinath Lahiri Public School (CBSE)</p>
+          <p class="edu-institution">CBSE Board</p>
           <p class="edu-detail">Score: <strong>84.8%</strong></p>
+        </div>
+        <div class="education-card">
+          <div class="edu-header">
+            <h3>Secondary</h3>
+            <span class="edu-date">2019</span>
+          </div>
+          <p class="edu-institution">CBSE Board</p>
+          <p class="edu-detail">Score: <strong>94.6%</strong></p>
         </div>
       </section>
 
@@ -153,9 +211,10 @@
             <div class="skill-chips">
               <span class="skill-chip">C</span>
               <span class="skill-chip">C++</span>
+              <span class="skill-chip">Python</span>
               <span class="skill-chip">JavaScript</span>
-              <span class="skill-chip">Go</span>
               <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">Go</span>
             </div>
           </div>
           <div class="skill-category">
@@ -165,7 +224,7 @@
               <span class="skill-chip">Express.js</span>
               <span class="skill-chip">Next.js</span>
               <span class="skill-chip">Hono.js</span>
-              <span class="skill-chip">Three.js</span>
+              <span class="skill-chip">Tailwind CSS</span>
             </div>
           </div>
           <div class="skill-category">
@@ -176,6 +235,7 @@
               <span class="skill-chip">MongoDB</span>
               <span class="skill-chip">Redis</span>
               <span class="skill-chip">Elasticsearch</span>
+              <span class="skill-chip">SQLite</span>
             </div>
           </div>
           <div class="skill-category">
@@ -186,6 +246,17 @@
               <span class="skill-chip">Git</span>
               <span class="skill-chip">GitHub Actions</span>
               <span class="skill-chip">AWS</span>
+              <span class="skill-chip">Terraform</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Core Concepts</h4>
+            <div class="skill-chips">
+              <span class="skill-chip">Data Structures & Algorithms</span>
+              <span class="skill-chip">REST APIs</span>
+              <span class="skill-chip">gRPC</span>
+              <span class="skill-chip">Microservices</span>
+              <span class="skill-chip">Database Systems</span>
             </div>
           </div>
         </div>
@@ -196,10 +267,12 @@
         <h2>Achievements</h2>
         <ul class="achievements-list">
           <li><strong>Status Code 2 Hackathon</strong> — 1st place in Quantitative Finance and RISE tracks.</li>
-          <li><strong>GATE 2025 (Computer Science)</strong> — All India Rank 1951, Score 656.</li>
+          <li><strong>GATE 2025 (Computer Science)</strong> — All India Rank 1951.</li>
           <li>
-            <strong>It's Alive – AI NPC Game Jam</strong> — Encouragement Award for developing NPC-based game in 4 days.
+            <strong>It's Alive – AI NPC Game Jam</strong> — Encouragement Award.
           </li>
+          <li><strong>LeetCode</strong> — Rating 1918, top 4.17%.</li>
+          <li><strong>Codeforces</strong> — Rating 1100+.</li>
         </ul>
       </section>
 
@@ -207,8 +280,7 @@
       <section class="about-section" id="connect">
         <h2>Connect</h2>
         <p>
-          I'm currently looking for full-time software development roles. Feel free to reach out through any of the
-          links below.
+          Feel free to reach out through any of the links below.
         </p>
         <div class="connect-links">
           <a href="https://github.com/rahulc0dy" target="_blank" rel="noopener" class="connect-card">
@@ -282,4 +354,3 @@
     <site-footer></site-footer>
   </body>
 </html>
-
